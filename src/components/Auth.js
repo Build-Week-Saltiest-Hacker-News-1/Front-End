@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import classnames from 'classnames';
+import axios from 'axios';
 
 const Auth = () => {
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = tab => {
       if(activeTab !== tab) setActiveTab(tab);
+  }
+  
+  const onLogIn = () => {
+
+  }
+
+  const onSignUp = () => {
+
   }
 
   return (
@@ -32,12 +41,27 @@ const Auth = () => {
               <h4>&nbsp;Log In:</h4>
             </Col>
           </Row>
+          <Row>
+            <Col xs='6'>
+              <Card>
+
+              </Card>
+            </Col>
+          </Row>
         </TabPane>
         <TabPane tabId="2">
           <Row>
             <Col xs='6'></Col>
             <Col xs='6'>
               <h4>Sign Up:</h4>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs='6'></Col>
+            <Col xs='6'>
+              <Card>
+
+              </Card>
             </Col>
           </Row>
         </TabPane>
