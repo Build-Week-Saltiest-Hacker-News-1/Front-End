@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import classnames from 'classnames';
 import axios from 'axios';
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const Auth = () => {
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = tab => {
       if(activeTab !== tab) setActiveTab(tab);
-  }
+  };
   
   const signUp = useFormik({
     initialValues: {
@@ -57,7 +57,7 @@ const Auth = () => {
         // Do Action After Sign up, do we automatically log in?
       })
     }
-  })
+  });
 
   const signIn = useFormik({
     initialValues: {
@@ -83,9 +83,7 @@ const Auth = () => {
         // Do Login Here
       })
     },
-  })
-
-  
+  });
 
   return (
     <div>
@@ -113,7 +111,43 @@ const Auth = () => {
           <Row>
             <Col xs='6'>
               <Card>
-
+                <Col xs='12'>
+                  <Form onSubmit={signIn.onSignIn}>
+                    <FormGroup>
+                      <br />
+                      <Label for='username'>Username</Label>
+                      <Col xs='12'>
+                        <Input
+                            id='username'
+                            name='username'
+                            type='text'
+                            onChange={signIn.handleChange}
+                            onBlur={signIn.handleBlur}
+                            value={signIn.values.username}
+                        />
+                        {signIn.touched.username && signIn.errors.username ? <div>{signIn.errors.username}</div> : null}
+                      </Col>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for='password'>Pasword</Label>
+                      <Col xs='12'>
+                        <Input
+                            id='password'
+                            name='password'
+                            type='password'
+                            onChange={signIn.handleChange}
+                            onBlur={signIn.handleBlur}
+                            value={signIn.values.password}
+                        />
+                        {signIn.touched.password && signIn.errors.password ? <div>{signIn.errors.password}</div> : null}
+                      </Col>
+                    </FormGroup>
+                    <Col xs='12'>
+                      <Button type='submit'>Submit</Button>
+                    </Col>
+                    <br />
+                  </Form>
+                </Col>
               </Card>
             </Col>
           </Row>
