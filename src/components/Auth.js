@@ -105,22 +105,17 @@ const Auth = () => {
         <TabPane tabId="1">
           <Row>
             <Col xs='6'>
-              <h4>&nbsp;Log In:</h4>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs='6'>
               <Card>
+                <CardTitle>Sign In:</CardTitle>
                 <Col xs='12'>
                   <Form onSubmit={signIn.onSignIn}>
                     <FormGroup>
-                      <br />
                       <Label for='username'>Username</Label>
                       <Col xs='12'>
                         <Input
                             id='username'
                             name='username'
-                            type='text'
+                            type='textname'
                             onChange={signIn.handleChange}
                             onBlur={signIn.handleBlur}
                             value={signIn.values.username}
@@ -156,14 +151,104 @@ const Auth = () => {
           <Row>
             <Col xs='6'></Col>
             <Col xs='6'>
-              <h4>Sign Up:</h4>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs='6'></Col>
-            <Col xs='6'>
               <Card>
-
+                <CardTitle>Sign Up:</CardTitle>
+                <Col xs='12'>
+                  <Form onSubmit={signUp.onSignUp}>
+                    <FormGroup>
+                      <Label for='name'>Name</Label>
+                      <Col xs='12'>
+                        <Input
+                            id='name'
+                            name='name'
+                            type='text'
+                            onChange={signUp.handleChange}
+                            onBlur={signUp.handleBlur}
+                            value={signUp.values.name}
+                        />
+                        {signUp.touched.name && signUp.errors.name ? <div>{signUp.errors.name}</div> : null}
+                      </Col>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for='user'>Username</Label>
+                      <Col xs='12'>
+                        <Input
+                            id='user'
+                            name='user'
+                            type='text'
+                            onChange={signUp.handleChange}
+                            onBlur={signUp.handleBlur}
+                            value={signUp.values.user}
+                        />
+                        {signUp.touched.user && signUp.errors.user ? <div>{signUp.errors.user}</div> : null}
+                      </Col>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for='email'>Email</Label>
+                      <Col xs='12'>
+                        <Input
+                            id='email'
+                            name='email'
+                            type='text'
+                            onChange={signUp.handleChange}
+                            onBlur={signUp.handleBlur}
+                            value={signUp.values.email}
+                        />
+                        {signUp.touched.email && signUp.errors.email ? <div>{signUp.errors.email}</div> : null}
+                      </Col>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for='pass'>Password</Label>
+                      <Col xs='12'>
+                        <Input
+                            id='pass'
+                            name='pass'
+                            type='password'
+                            onChange={signIn.handleChange}
+                            onBlur={signIn.handleBlur}
+                            value={signIn.values.pass}
+                        />
+                        {signIn.touched.pass && signIn.errors.pass ? <div>{signIn.errors.pass}</div> : null}
+                      </Col>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for='confirm'>Confirm Password</Label>
+                      <Col xs='12'>
+                        <Input
+                            id='confirm'
+                            name='confirm'
+                            type='password'
+                            onChange={signIn.handleChange}
+                            onBlur={signIn.handleBlur}
+                            value={signIn.values.confirm}
+                        />
+                        {signIn.touched.confirm && signIn.errors.confirm ? <div>{signIn.errors.confirm}</div> : null}
+                      </Col>
+                    </FormGroup>
+                    <Row>
+                      <Col xs='12'>
+                        <FormGroup check>
+                          <Label check>
+                            <Input 
+                            id='accepted'
+                            name='accepted'
+                            type='checkbox'
+                            onChange={signIn.handleChange}
+                            onBlur={signIn.handleBlur}
+                            value={signIn.values.accepted}
+                            />{' '}
+                            Agree to terms of Service?
+                          </Label>
+                        </FormGroup>
+                        <br />
+                      </Col>
+                    </Row>
+                    <Col xs='12'>
+                      <Button type='submit'>Submit</Button>
+                    </Col>
+                    <br />
+                  </Form>
+                </Col>
               </Card>
             </Col>
           </Row>
