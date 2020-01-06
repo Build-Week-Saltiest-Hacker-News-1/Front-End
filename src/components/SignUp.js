@@ -5,14 +5,8 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const Auth = () => {
-  const [activeTab, setActiveTab] = useState('1');
-
-  const toggle = tab => {
-      if(activeTab !== tab) setActiveTab(tab);
-  };
-  
-  const signUp = useFormik({
+const SignUp = () => {
+const signUp = useFormik({
     initialValues: {
       name: 'Your Full Name',
       user: 'Username',
@@ -60,96 +54,8 @@ const Auth = () => {
     }
   });
 
-  const signIn = useFormik({
-    initialValues: {
-      username: 'Username',
-      password: 'Password'
-    },
-    validationSchema: Yup.object({
-      username: Yup.string()
-      .required('Required'),
-      password: Yup.string()
-      .required('Required')
-    }),
-    onSignIn: values => {
-      axios({
-        method: 'post',
-        url: 'https://salty-hacker-news.herokuapp.com/api/auth/login',
-        data: values,
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        }
-      })
-      .then(res => {
-        // Do Login Here
-        console.log(res)
-      })
-    },
-  });
-
   return (
-    <div>
-      <Nav tabs>
-        <NavItem style={{width: '50%'}}>
-            <NavLink 
-            className={classnames({ active: activeTab === '1' })}
-            onClick={() => { toggle('1'); }}
-            >Log In</NavLink>
-        </NavItem>
-        <NavItem style={{width: '50%'}}>
-            <NavLink
-            className={classnames({ active: activeTab === '2' })}
-            onClick={() => { toggle('2'); }}
-            >Sign Up</NavLink>
-        </NavItem>
-      </Nav>
-      <TabContent activeTab={activeTab}>
-        <TabPane tabId="1">
-          <Row>
-            <Col xs='6'>
-              <Card>
-                <CardTitle>Sign In:</CardTitle>
-                <Col xs='12'>
-                  <Form onSubmit={signIn.onSignIn}>
-                    <FormGroup>
-                      <Label for='username'>Username</Label>
-                      <Col xs='12'>
-                        <Input
-                            id='username'
-                            name='username'
-                            type='textname'
-                            onChange={signIn.handleChange}
-                            onBlur={signIn.handleBlur}
-                            value={signIn.values.username}
-                        />
-                        {signIn.touched.username && signIn.errors.username ? <div>{signIn.errors.username}</div> : null}
-                      </Col>
-                    </FormGroup>
-                    <FormGroup>
-                      <Label for='password'>Pasword</Label>
-                      <Col xs='12'>
-                        <Input
-                            id='password'
-                            name='password'
-                            type='password'
-                            onChange={signIn.handleChange}
-                            onBlur={signIn.handleBlur}
-                            value={signIn.values.password}
-                        />
-                        {signIn.touched.password && signIn.errors.password ? <div>{signIn.errors.password}</div> : null}
-                      </Col>
-                    </FormGroup>
-                    <Col xs='12'>
-                      <Button type='submit'>Submit</Button>
-                    </Col>
-                    <br />
-                  </Form>
-                </Col>
-              </Card>
-            </Col>
-          </Row>
-        </TabPane>
-        <TabPane tabId="2">
+      <div>
           <Row>
             <Col xs='6'></Col>
             <Col xs='6'>
@@ -206,9 +112,9 @@ const Auth = () => {
                             id='pass'
                             name='pass'
                             type='password'
-                            onChange={signIn.handleChange}
-                            onBlur={signIn.handleBlur}
-                            value={signIn.values.pass}
+                            onChange={signUp.handleChange}
+                            onBlur={signUp.handleBlur}
+                            value={signUp.values.pass}
                         />
                         {signUp.touched.pass && signUp.errors.pass ? <div>{signUp.errors.pass}</div> : null}
                       </Col>
@@ -220,11 +126,11 @@ const Auth = () => {
                             id='confirm'
                             name='confirm'
                             type='password'
-                            onChange={signIn.handleChange}
-                            onBlur={signIn.handleBlur}
-                            value={signIn.values.confirm}
+                            onChange={signUp.handleChange}
+                            onBlur={signUp.handleBlur}
+                            value={signUp.values.confirm}
                         />
-                        {signIn.touched.confirm && signIn.errors.confirm ? <div>{signIn.errors.confirm}</div> : null}
+                        {signUp.touched.confirm && signUp.errors.confirm ? <div>{signUp.errors.confirm}</div> : null}
                       </Col>
                     </FormGroup>
                     <Row>
@@ -235,9 +141,9 @@ const Auth = () => {
                             id='accepted'
                             name='accepted'
                             type='checkbox'
-                            onChange={signIn.handleChange}
-                            onBlur={signIn.handleBlur}
-                            value={signIn.values.accepted}
+                            onChange={signUp.handleChange}
+                            onBlur={signUp.handleBlur}
+                            value={signUp.values.accepted}
                             />{' '}
                             Agree to terms of Service?
                           </Label>
@@ -254,10 +160,7 @@ const Auth = () => {
               </Card>
             </Col>
           </Row>
-        </TabPane>
-      </TabContent>
-    </div>
-  );
-}
-
-export default Auth;
+      </div>
+  )
+  }
+  export default SignUp

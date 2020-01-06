@@ -5,6 +5,8 @@ import Auth from './components/Auth';
 import Feed from './components/Feed';
 import Saved from './components/Saved';
 import { Container } from 'reactstrap';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 
 let auth = false;
 
@@ -13,15 +15,18 @@ function App() {
     <div className='App'>
       {
           auth ? 
-          <Link to='/saved'>View Saved Posts</Link> :
-          <Link to='/auth'>Log In or Sign Up</Link>
+          <div><Link to='/saved'>View Saved Posts</Link></div> :
+          <div><Link to='/signin'>Sign In</Link> or <Link to='/signup'>Sign Up</Link></div>
         };
       <Container>
         <Route exact path='/'>
           <Feed />
         </Route>
-        <Route exact path='/auth'>
-          <Auth />
+        <Route exact path='/signin'>
+          <SignIn />
+        </Route>
+        <Route exact path='/signup'>
+          <SignUp />
         </Route>
         <Route exact path='/saved'>
           <Saved />
