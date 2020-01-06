@@ -47,7 +47,7 @@ const Auth = () => {
     onSignUp: values => {
       axios({
         method: 'post',
-        url: 'api/url/here',
+        url: 'https://salty-hacker-news.herokuapp.com/api/auth/register',
         data: values,
         headers: {
             'Content-Type': 'multipart/form-data'
@@ -55,6 +55,7 @@ const Auth = () => {
       })
       .then(res => {
         // Do Action After Sign up, do we automatically log in?
+        console.log(res)
       })
     }
   });
@@ -73,7 +74,7 @@ const Auth = () => {
     onSignIn: values => {
       axios({
         method: 'post',
-        url: 'api/url/here',
+        url: 'https://salty-hacker-news.herokuapp.com/api/auth/login',
         data: values,
         headers: {
             'Content-Type': 'multipart/form-data'
@@ -81,6 +82,7 @@ const Auth = () => {
       })
       .then(res => {
         // Do Login Here
+        console.log(res)
       })
     },
   });
@@ -208,7 +210,7 @@ const Auth = () => {
                             onBlur={signIn.handleBlur}
                             value={signIn.values.pass}
                         />
-                        {signIn.touched.pass && signIn.errors.pass ? <div>{signIn.errors.pass}</div> : null}
+                        {signUp.touched.pass && signUp.errors.pass ? <div>{signUp.errors.pass}</div> : null}
                       </Col>
                     </FormGroup>
                     <FormGroup>
