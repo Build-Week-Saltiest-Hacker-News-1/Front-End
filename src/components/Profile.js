@@ -13,7 +13,8 @@ const Profile = () => {
                 <Col xs='3'></Col>
                 <Col xs='6'>
                     <Card>
-                        <CardTitle>{ userInfo.user }</CardTitle>
+                        <CardTitle style={{margin: '1rem'}}>{ userInfo.user }</CardTitle>
+                        <hr />
                         <CardBody>
                             <CardSubtitle>{ userInfo.name }</CardSubtitle>
                             <CardText>{ userInfo.email }</CardText>
