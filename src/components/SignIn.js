@@ -35,7 +35,10 @@ const SignIn = () => {
       });
 
     return (
+        <div>
+        <Row>&nbsp;</Row>
         <Row>
+            <Col xs='3'></Col>
             <Col xs='6'>
               <Card>
                 <CardTitle>Sign In:</CardTitle>
@@ -77,7 +80,9 @@ const SignIn = () => {
                 </Col>
               </Card>
             </Col>
+            <Col xs='3'></Col>
           </Row>
+        </div>
     )
 }
 

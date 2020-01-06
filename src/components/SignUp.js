@@ -56,8 +56,9 @@ const signUp = useFormik({
 
   return (
       <div>
+          <Row>&nbsp;</Row>
           <Row>
-            <Col xs='6'></Col>
+            <Col xs='3'></Col>
             <Col xs='6'>
               <Card>
                 <CardTitle>Sign Up:</CardTitle>
@@ -159,6 +160,7 @@ const signUp = useFormik({
                 </Col>
               </Card>
             </Col>
+            <Col xs='3'></Col>
           </Row>
       </div>
   )
