@@ -1,17 +1,33 @@
 import React from 'react';
 import { Card, CardTitle, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import axios from 'axios';
 import { useFormik } from 'formik';
+
+import { useDispatch } from 'react-redux'
+import { postRegister} from './../actions'
+
 import * as Yup from 'yup';
 
 const SignUp = () => {
-const signUp = useFormik({
+
+  const dispatch = useDispatch()
+
+  const handleSignUp = e => {
+    e.preventDefault()
+    const validValue = {
+      name: signUp.values.name,
+      user: signUp.values.user,
+      email: signUp.values.email,
+      password: signUp.values.password
+    } 
+    dispatch(postRegister(validValue))
+  }
+
+  const signUp = useFormik({
     initialValues: {
       name: 'Your Full Name',
       user: 'Username',
       email: 'Your Email Address',
-      password: 'Your Password',
-      confirm: 'Retype Password',
+      password: 'Your Password'
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -36,21 +52,7 @@ const signUp = useFormik({
       accepted: Yup.boolean()
       .required('Required')
       .oneOf([true], 'You must accept the terms and conditions.')
-    }),
-    onSignUp: values => {
-      axios({
-        method: 'post',
-        url: 'https://salty-hacker-news.herokuapp.com/api/auth/register',
-        data: values,
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        }
-      })
-      .then(res => {
-        // Do Action After Sign up, do we automatically log in?
-        console.log(res)
-      })
-    }
+    })
   });
 
   return (
@@ -62,7 +64,7 @@ const signUp = useFormik({
               <Card>
                 <CardTitle>Sign Up:</CardTitle>
                 <Col xs='12'>
-                  <Form onSubmit={signUp.onSignUp}>
+                  <Form onSubmit={handleSignUp}>
                     <FormGroup>
                       <Label for='name'>Name</Label>
                       <Col xs='12'>
