@@ -23,7 +23,7 @@ const signUp = useFormik({
       email: Yup.string()
       .email('Invalid email address')
       .required('Required'),
-      pass: Yup.string()
+      password: Yup.string()
       .min(8, 'must be 8 characters or more')
       .required('Required'),
       confirm: Yup.string().when("pass", {
@@ -106,17 +106,17 @@ const signUp = useFormik({
                       </Col>
                     </FormGroup>
                     <FormGroup>
-                      <Label for='pass'>Password</Label>
+                      <Label for='password'>Password</Label>
                       <Col xs='12'>
                         <Input
-                            id='pass'
-                            name='pass'
+                            id='password'
+                            name='password'
                             type='password'
                             onChange={signUp.handleChange}
                             onBlur={signUp.handleBlur}
-                            value={signUp.values.pass}
+                            value={signUp.values.password}
                         />
-                        {signUp.touched.pass && signUp.errors.pass ? <div>{signUp.errors.pass}</div> : null}
+                        {signUp.touched.password && signUp.errors.password ? <div>{signUp.errors.password}</div> : null}
                       </Col>
                     </FormGroup>
                     <FormGroup>
@@ -164,5 +164,5 @@ const signUp = useFormik({
       </div>
     )
   }
-  
+
   export default SignUp

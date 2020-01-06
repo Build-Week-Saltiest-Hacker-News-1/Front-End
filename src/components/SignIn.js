@@ -8,11 +8,11 @@ const SignIn = () => {
     
     const signIn = useFormik({
         initialValues: {
-          username: 'Username',
+          user: 'Username',
           password: 'Password'
         },
         validationSchema: Yup.object({
-          username: Yup.string()
+          user: Yup.string()
           .required('Required'),
           password: Yup.string()
           .required('Required')
@@ -44,17 +44,17 @@ const SignIn = () => {
                         <Col xs='12'>
                             <Form onSubmit={signIn.onSignIn}>
                                 <FormGroup>
-                                    <Label for='username'>Username</Label>
+                                    <Label for='user'>Username</Label>
                                      <Col xs='12'>
                                         <Input
-                                            id='username'
-                                            name='username'
+                                            id='user'
+                                            name='user'
                                             type='textname'
                                             onChange={signIn.handleChange}
                                             onBlur={signIn.handleBlur}
-                                            value={signIn.values.username}
+                                            value={signIn.values.user}
                                         />
-                                        {signIn.touched.username && signIn.errors.username ? <div>{signIn.errors.username}</div> : null}
+                                        {signIn.touched.user && signIn.errors.user ? <div>{signIn.errors.user}</div> : null}
                                     </Col>
                                 </FormGroup>
                                 <FormGroup>
