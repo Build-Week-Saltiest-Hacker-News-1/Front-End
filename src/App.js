@@ -1,23 +1,20 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
+import { Container } from 'reactstrap';
 
-import Auth from './components/Auth';
 import Feed from './components/Feed';
 import Saved from './components/Saved';
-import { Container } from 'reactstrap';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import Profile from './components/Profile';
+import Navigation from './components/Navigation';
 
 let auth = false;
 
 function App() {
   return (
     <div className='App'>
-      {
-          auth ? 
-          <div><Link to='/saved'>View Saved Posts</Link></div> :
-          <div><Link to='/signin'>Sign In</Link> or <Link to='/signup'>Sign Up</Link></div>
-        };
+      <Navigation loggedIn={ auth } />
       <Container>
         <Route exact path='/'>
           <Feed />
@@ -30,6 +27,9 @@ function App() {
         </Route>
         <Route exact path='/saved'>
           <Saved />
+        </Route>
+        <Route exact path='/profile'>
+          <Profile />
         </Route>
       </Container>
     </div>
