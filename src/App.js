@@ -1,36 +1,35 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom'
-import { Container } from 'reactstrap';
+import React from "react";
+import { Route, Link, Switch } from "react-router-dom";
+import { Container } from "reactstrap";
+import PrivateRoute from "./components/PrivateRoute";
 
-import Feed from './components/Feed';
-import Saved from './components/Saved';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
-import Profile from './components/Profile';
-import Navigation from './components/Navigation';
+import Feed from "./components/Feed";
+import Saved from "./components/Saved";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
+import Profile from "./components/Profile";
+import Navigation from "./components/Navigation";
 
 let auth = false;
 
 function App() {
   return (
-    <div className='App'>
-      <Navigation loggedIn={ auth } />
+    <div className="App">
+      <Navigation loggedIn={auth} />
       <Container>
-        <Route exact path='/'>
-          <Feed />
-        </Route>
-        <Route exact path='/signin'>
-          <SignIn />
-        </Route>
-        <Route exact path='/signup'>
-          <SignUp />
-        </Route>
-        <Route exact path='/saved'>
-          <Saved />
-        </Route>
-        <Route exact path='/profile'>
-          <Profile />
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Feed />
+          </Route>
+          <Route exact path="/signin">
+            <SignIn />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <PrivateRoute exact path="/saved" component={Saved} />
+          <PrivateRoute exact path="/profile" component={Profile} />
+        </Switch>
       </Container>
     </div>
   );
