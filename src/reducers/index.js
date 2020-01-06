@@ -38,6 +38,24 @@ export const Reducers = (state = initialState, action) =>{
             err: action.payload
             }
 
+        case REGISTER_START:
+            return {
+                ...state,
+
+            }
+
+        case REGISTER_SUCCESS:
+            return {
+                ...state,
+                token: action.payload.token
+            }
+
+        case REGISTER_FAIL:
+            return {
+            ...state,
+            err: action.payload
+            }
+
         default:
             return state;
     }

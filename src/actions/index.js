@@ -23,7 +23,7 @@ export const postLogin = payload => dispatch => {
 
 export const postRegister = payload => dispatch => {
     dispatch({type: REGISTER_START})
-    axios.post('https://salty-hacker-news.herokuapp.com/api/auth/register', payload)
+    axios.post('https://salty-hacker-news.herokuapp.com/api/auth/register/', payload)
     .then( res => {
         dispatch({type: REGISTER_SUCCESS, payload: res.data})
     })
