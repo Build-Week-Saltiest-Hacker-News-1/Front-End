@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import classnames from 'classnames';
+import React from 'react';
+import { Card, CardTitle, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -163,6 +162,7 @@ const signUp = useFormik({
             <Col xs='3'></Col>
           </Row>
       </div>
-  )
+    )
   }
+  
   export default SignUp
