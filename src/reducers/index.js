@@ -8,13 +8,18 @@ import {
 } from './../actions'
 
 export const initialState = {
-    data : [],
+    feed : [],
+    saved: [],
+    userInfo : null,
     isLoggedIn: false,
     isLoggingIn: false,
     isFetching: false,
     err: '',
     token: ''
 }
+
+
+
 
 export const Reducers = (state = initialState, action) =>{
 
