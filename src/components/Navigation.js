@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from './../actions'
 import {
   Collapse,
@@ -20,8 +20,14 @@ const Navigation = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   const AuthLinks = () => {
+      const message = useSelector(state => state.message)
       return (
           <>
+            <NavItem>
+              <NavLink>
+                {message}
+              </NavLink>
+            </NavItem>
             <NavItem>
                 <NavLink href="/" onClick={e => {
                   e.preventDefault();

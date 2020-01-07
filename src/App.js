@@ -18,18 +18,18 @@ function App() {
 
   const loggedIn = useSelector(state => state.isLoggedIn)
 
+
   return (
     <div className="App">
-      <Navigation loggedIn={loggedIn} />
+      <Navigation loggedIn={loggedIn}/>
       <Container>
         <Switch>
+
+          <Route exact path="/" component={Welcome} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
-          {
-            loggedIn ?
-            <PrivateRoute exact path="/" component={TabbedView} /> :
-            <Route path="/" component={Welcome} />
-          }
+          <PrivateRoute path="/dashboard" component={TabbedView} /> :
+          
         </Switch>
       </Container>
     </div>
