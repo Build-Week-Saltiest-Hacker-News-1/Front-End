@@ -26,8 +26,8 @@ const UserList = () => {
                 <Col xs="1"><h4 className="text-primary">Score</h4></Col>
                 <Col xs="1"><h4 className="text-primary">Save</h4></Col>
             </Row>
-            {usersList.map(user => 
-                    <UserCard user={ user } />    
+            {usersList.map((user, index) => 
+                    <UserCard user={ user } place={ index } />    
                 )
             }
         </>

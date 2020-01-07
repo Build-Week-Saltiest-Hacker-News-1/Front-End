@@ -16,7 +16,7 @@ import TabbedView from "./components/TabbedView";
 
 function App() {
 
-  const loggedIn = useSelector(state => state.isLoggedIn)
+  const loggedIn = true //useSelector(state => state.isLoggedIn)
 
 
   return (
