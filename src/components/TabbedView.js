@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Jumbotron } from 'reactstrap';
 import classnames from 'classnames';
 
 import UserList from "./UserList";
@@ -56,28 +56,36 @@ const TabbedView = () => {
                 <TabPane tabId="1">
                 <Row>
                     <Col sm="12">
-                        <UserList />
+                        <Jumbotron className="bg-info">
+                            <UserList />
+                        </Jumbotron>
                     </Col>
                 </Row>
                 </TabPane>
                 <TabPane tabId="2">
                 <Row>
                     <Col sm="12">
-                        <Feed />
+                        <Jumbotron className="bg-info">
+                            <Feed />
+                        </Jumbotron>
                     </Col>
                 </Row>
                 </TabPane>
                 <TabPane tabId="3">
                 <Row>
-                    <Col sm="12">
-                        <Saved />
+                    <Col sm='12'>
+                        <Jumbotron className="bg-warning">
+                            <Saved />
+                        </Jumbotron>
                     </Col>
                 </Row>
                 </TabPane>
                 <TabPane tabId="4">
                 <Row>
                     <Col sm="12">
-                        <Profile />
+                        <Jumbotron className="bg-warning">
+                            <Profile />
+                        </Jumbotron>
                     </Col>
                 </Row>
                 </TabPane>
