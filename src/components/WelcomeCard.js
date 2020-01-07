@@ -1,8 +1,8 @@
 import React from "react";
-import { Row, Col, Table } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-svg-icons'
-const UserCard = (props) => {
+import { faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-svg-icons'
+const WelcomeCard = (props) => {
     const { user, place } = props;
 
     const placeDisplay = () => {
@@ -49,10 +49,9 @@ const UserCard = (props) => {
                     <Col xs="1">{ placeDisplay() }</Col>
                     <Col xs="3"><h4 className="text-primary">{user.name}</h4></Col>
                     <Col xs="1"></Col>
-                    <Col xs="4"><h4 className="text-primary">{user.homeworld}</h4></Col>
+                    <Col xs="5"><h4 className="text-primary">{user.homeworld}</h4></Col>
                     <Col xs="1"></Col>
                     <Col xs="1"><h4 className="text-primary">{user.height}</h4></Col>
-                    <Col xs="1"><FontAwesomeIcon icon={ faStar } color="gold" size="2x" /></Col>
                 </Row>
             </div>
             <Row>&nbsp;</Row>
@@ -60,4 +59,4 @@ const UserCard = (props) => {
     );
 }
 
-export default UserCard;
+export default WelcomeCard;
