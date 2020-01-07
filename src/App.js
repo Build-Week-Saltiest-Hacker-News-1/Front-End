@@ -18,16 +18,8 @@ function App() {
       <Navigation loggedIn={auth} />
       <Container>
         <Switch>
-          <Route exact path="/">
-            <Feed />
-          </Route>
-          <Route exact path="/signin">
-            <SignIn />
-          </Route>
-          <Route exact path="/signup">
-            <SignUp />
-          </Route>
-          <PrivateRoute exact path="/saved" component={Saved} />
+          <Route exact path="/signin" component={SignIn} />
+          <PrivateRoute exact path="/feed" component={Feed} />
           <PrivateRoute exact path="/profile" component={Profile} />
         </Switch>
       </Container>
