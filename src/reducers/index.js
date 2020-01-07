@@ -11,7 +11,10 @@ import {
     UPDATE_PROFILE_FAIL,
     GET_FEED_START,
     GET_FEED_SUCCESS,
-    GET_FEED_FAIL
+    GET_FEED_FAIL,
+    GET_USER_START,
+    GET_USER_SUCCESS,
+    GET_USER_FAIL
 } from './../actions'
 
 export const initialState = {
