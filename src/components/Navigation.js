@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logout } from './../actions'
 import {
   Collapse,
   Navbar,
@@ -11,6 +13,8 @@ import {
 } from 'reactstrap';
 
 const Navigation = (props) => {
+
+  const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -19,13 +23,11 @@ const Navigation = (props) => {
       return (
           <>
             <NavItem>
-                <NavLink href='/feed'>Feed</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink href="/saved/">Saved</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink href="/profile">Profile</NavLink>
+                <NavLink href="/" onClick={e => {
+                  e.preventDefault();
+                  localStorage.clear()
+                  dispatch(logout())
+                }}>Logout</NavLink>
             </NavItem>
           </>
       )

@@ -19,9 +19,6 @@ export const initialState = {
     token: ''
 }
 
-
-
-
 export const Reducers = (state = initialState, action) =>{
 
     switch(action.type){
