@@ -5,7 +5,7 @@ import axios from 'axios'
 import UserCard from "./UserCard";
 
 const UserList = () => {
-    const [usersList, updateUsers] = useState({})
+    const [usersList, updateUsers] = useState([])
 
     useEffect(() => {
         axios.get('https://swapi.co/api/people')
