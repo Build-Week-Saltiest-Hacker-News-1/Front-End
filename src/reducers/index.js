@@ -32,7 +32,9 @@ export const Reducers = (state = initialState, action) =>{
             return {
                 ...state,
                 isLoggingIn: false,
-                isLoggedIn: true
+                isLoggedIn: true,
+                token: action.payload.token,
+                message: action.payload.message
             }
 
 
