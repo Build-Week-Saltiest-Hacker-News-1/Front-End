@@ -18,15 +18,7 @@ const Navigation = (props) => {
   const AuthLinks = () => {
       return (
           <>
-            <NavItem>
-                <NavLink href='/feed'>Feed</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink href="/saved/">Saved</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink href="/profile">Profile</NavLink>
-            </NavItem>
+          
           </>
       )
   }
@@ -34,9 +26,6 @@ const Navigation = (props) => {
   const VisitLinks = () => {
       return (
           <>
-            <NavItem>
-                <NavLink href='/feed'>Feed</NavLink>
-            </NavItem>
             <NavItem>
                 <NavLink href="/signin/">Sign In</NavLink>
             </NavItem>
