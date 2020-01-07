@@ -15,6 +15,11 @@ export const UPDATE_PROFILE_START = "UPDATE_PROFILE_START"
 export const UPDATE_PROFILE_SUCCESS = "UPDATE_PROFILE_SUCCESS"
 export const UPDATE_PROFILE_FAIL = "UPDATE_PROFILE_FAIL"
 
+export const GET_FEED_START = "GET_FEED_START";
+export const GET_FEED_SUCCESS = "GET_FEED_SUCCESS";
+export const GET_FEED_FAIL = "GET_FEED_FAIL";
+
+
 
 export const postLogin = (payload) => dispatch => {
   dispatch({ type: LOGIN_START });
@@ -49,7 +54,7 @@ export const logout = () => dispatch => {
 
 //update profile
 export const updateProfile = (payload, id) => dispatch => {
-  dispatch({type: UPDATE_PROFILE_FAIL});
+  dispatch({type: UPDATE_PROFILE_START});
   axiosWithAuth()
     .put(``, payload)
     .then(res => 
@@ -57,4 +62,23 @@ export const updateProfile = (payload, id) => dispatch => {
     .catch( err => {
       dispatch({ type: UPDATE_PROFILE_FAIL, payload: err.response })
   })
+}
+
+//get feed
+export const getAllFeed = () => dispatch =>{
+  dispatch({type: GET_FEED_START})
+  axiosWithAuth()
+    .get(``)
+    .then(res => {
+      dispatch({
+        type: GET_FEED_SUCCESS,
+        payload: res.data
+      })
+    })
+    .catch( err => {
+      dispatch({
+        type: GET_FEED_FAIL,
+        payload: err.response
+      })
+    })
 }

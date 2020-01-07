@@ -5,7 +5,13 @@ import {
     LOGOUT,
     REGISTER_START,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    UPDATE_PROFILE_START,
+    UPDATE_PROFILE_SUCCESS,
+    UPDATE_PROFILE_FAIL,
+    GET_FEED_START,
+    GET_FEED_SUCCESS,
+    GET_FEED_FAIL
 } from './../actions'
 
 export const initialState = {
@@ -14,6 +20,7 @@ export const initialState = {
     userInfo : null,
     isLoggedIn: false,
     isLoggingIn: false,
+    isUpdating: false,
     isFetching: false,
     err: '',
     token: ''
@@ -37,7 +44,6 @@ export const Reducers = (state = initialState, action) =>{
                 message: action.payload.message
             }
 
-
         case LOGIN_FAIL:
             return {
             ...state,
@@ -51,12 +57,12 @@ export const Reducers = (state = initialState, action) =>{
             token: '',
             }      
 
+            
         case REGISTER_START:
             return {
                 ...state,
 
             }
-
         case REGISTER_SUCCESS:
             return {
                 ...state,
@@ -67,6 +73,44 @@ export const Reducers = (state = initialState, action) =>{
             return {
             ...state,
             err: action.payload
+            }
+
+
+        case UPDATE_PROFILE_START:
+            return{
+                ...state,
+                isUpdating: true
+            }
+        case UPDATE_PROFILE_SUCCESS:
+            return{
+                ...state,
+                isUpdating: false,
+                user: action.payload
+            }
+        case UPDATE_PROFILE_FAIL:
+            return{
+                ...state,
+                isUpdating: false,
+                err: action.payload
+            }
+
+        case GET_FEED_START:
+            return{
+                ...state,
+                isFetching: true
+            }
+        case GET_FEED_SUCCESS:
+            return{
+                ...state,
+                isFetching: false,
+                feed: action.payload
+            }
+
+        case GET_FEED_FAIL:
+            return{
+                ...state,
+                isFetching: false,
+                err: action.payload
             }
 
         default:
