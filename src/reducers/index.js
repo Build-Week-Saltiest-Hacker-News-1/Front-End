@@ -2,6 +2,7 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    LOGOUT,
     REGISTER_START,
     REGISTER_SUCCESS,
     REGISTER_FAIL
@@ -17,9 +18,6 @@ export const initialState = {
     err: '',
     token: ''
 }
-
-
-
 
 export const Reducers = (state = initialState, action) =>{
 
@@ -37,11 +35,19 @@ export const Reducers = (state = initialState, action) =>{
                 isLoggedIn: true
             }
 
+
         case LOGIN_FAIL:
             return {
             ...state,
             err: action.payload
             }
+
+        case LOGOUT:
+            return {
+            ...state,
+            isLoggedIn: false,
+            token: '',
+            }      
 
         case REGISTER_START:
             return {
