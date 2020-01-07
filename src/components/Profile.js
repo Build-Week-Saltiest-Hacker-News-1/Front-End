@@ -4,7 +4,7 @@ import { Card, CardTitle, CardBody, CardHeader, CardSubtitle, CardText, Row, Col
 import { useSelector } from "react-redux";
 const Profile = () => {
     // Swap these two!
-    //const userInfo = useSelector(state => state.counter.userInfo);
+    //const userInfo = useSelector(state => state.userInfo);
     const userInfo = { user: 'sample', name: 'sample name', email: 'sample@sample.com'};
     return (
         <>
