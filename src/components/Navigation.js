@@ -37,9 +37,6 @@ const Navigation = (props) => {
       return (
           <>
             <NavItem>
-                <NavLink href='/feed'>Feed</NavLink>
-            </NavItem>
-            <NavItem>
                 <NavLink href="/signin/">Sign In</NavLink>
             </NavItem>
             <NavItem>
