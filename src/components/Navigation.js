@@ -23,12 +23,12 @@ const Navigation = (props) => {
       const message = useSelector(state => state.message)
       return (
           <>
-            <NavItem>
+            <NavItem style={{float: "right"}}>
               <NavLink>
                 {message}
               </NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem style={{float: "right"}}>
                 <NavLink href="/" onClick={e => {
                   e.preventDefault();
                   localStorage.clear()
@@ -42,10 +42,10 @@ const Navigation = (props) => {
   const VisitLinks = () => {
       return (
           <>
-            <NavItem>
+            <NavItem style={{float: "right"}}>
                 <NavLink href="/signin/">Sign In</NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem style={{float: "right"}}>
                 <NavLink href="/signup">Sign Up</NavLink>
             </NavItem>
           </>
@@ -55,7 +55,7 @@ const Navigation = (props) => {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">Salt Mine</NavbarBrand>
+        <NavbarBrand href="/">Hacker News Salt Mine</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
