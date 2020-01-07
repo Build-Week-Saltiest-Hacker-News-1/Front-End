@@ -113,6 +113,26 @@ export const Reducers = (state = initialState, action) =>{
                 err: action.payload
             }
 
+        case GET_USER_START:
+            return{
+                ...state,
+                isFetching: true
+            }
+        case GET_USER_SUCCESS:
+            return{
+                ...state,
+                isFetching: false,
+                userInfo: action.payload
+            }
+    
+        case GET_USER_FAIL:
+            return{
+                ...state,
+                isFetching: false,
+                err: action.payload
+            }
+            
+
         default:
             return state;
     }

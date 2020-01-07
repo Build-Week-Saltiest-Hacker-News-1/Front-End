@@ -19,6 +19,11 @@ export const GET_FEED_START = "GET_FEED_START";
 export const GET_FEED_SUCCESS = "GET_FEED_SUCCESS";
 export const GET_FEED_FAIL = "GET_FEED_FAIL";
 
+export const GET_USER_START = "GET_USER_START";
+export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
+export const GET_USER_FAIL = "GET_USER_FAIL";
+
+
 
 
 export const postLogin = (payload) => dispatch => {
@@ -56,7 +61,7 @@ export const logout = () => dispatch => {
 export const updateProfile = (payload, id) => dispatch => {
   dispatch({type: UPDATE_PROFILE_START});
   axiosWithAuth()
-    .put(``, payload)
+    .put(`api/dashboard/:${id}`, payload)
     .then(res => 
       dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: res.data }))
     .catch( err => {
@@ -68,7 +73,7 @@ export const updateProfile = (payload, id) => dispatch => {
 export const getAllFeed = () => dispatch =>{
   dispatch({type: GET_FEED_START})
   axiosWithAuth()
-    .get(``)
+    .get(`api/comments`)
     .then(res => {
       dispatch({
         type: GET_FEED_SUCCESS,
@@ -82,3 +87,24 @@ export const getAllFeed = () => dispatch =>{
       })
     })
 }
+// get user info
+export const getUserData = (id) => dispatch =>{
+  dispatch({type: GET_USER_START})
+  axiosWithAuth()
+    .get(`api/dashboard/:${id}`)
+    .then(res => {
+      dispatch({
+        type: GET_USER_SUCCESS,
+        payload: res.data
+      })
+    })
+    .catch( err => {
+      dispatch({
+        type: GET_USER_FAIL,
+        payload: err.response
+      })
+    })
+}
+
+
+
