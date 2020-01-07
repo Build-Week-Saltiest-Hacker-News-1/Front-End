@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import { logout } from './../actions'
 import {
   Collapse,
@@ -14,13 +15,16 @@ import {
 
 const Navigation = (props) => {
 
+  const { push } = useHistory()
+
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false);
+  const token = localStorage.getItem('token')
+  const message = localStorage.getItem('welcomemsg')
 
   const toggle = () => setIsOpen(!isOpen);
 
   const AuthLinks = () => {
-      const message = useSelector(state => state.message)
       return (
           <>
             <NavItem style={{float: "right"}}>
@@ -29,10 +33,11 @@ const Navigation = (props) => {
               </NavLink>
             </NavItem>
             <NavItem style={{float: "right"}}>
-                <NavLink href="/" onClick={e => {
+                <NavLink onClick={e => {
                   e.preventDefault();
+                  dispatch({type: "LOGOUT"})
                   localStorage.clear()
-                  dispatch(logout())
+                  push("/")
                 }}>Logout</NavLink>
             </NavItem>
           </>
@@ -55,11 +60,11 @@ const Navigation = (props) => {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">Hacker News Salt Mine</NavbarBrand>
+        <NavbarBrand href={token ? '/dashboard' : '/'}>Hacker News Salt Mine</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            { props.loggedIn ?
+            { token ?
                 <AuthLinks /> :
                 <VisitLinks /> 
             }

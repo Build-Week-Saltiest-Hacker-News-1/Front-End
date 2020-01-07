@@ -34,6 +34,7 @@ export const postLogin = (payload) => dispatch => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       console.log(res.data.token)
       localStorage.setItem("token", res.data.token)
+      localStorage.setItem("welcomemsg", res.data.message)
       payload.props.history.push("/dashboard");
     })
     .catch(err => {
