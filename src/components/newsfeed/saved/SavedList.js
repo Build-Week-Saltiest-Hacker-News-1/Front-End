@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import NewsCard from 'NewsCard';
+import {useDispatch, useSelector } from "react-redux"
+import { getAllFeed } from '../../../actions';
 
 
 const SavedList = (props) => {
-    const [savedObjects, setSavedObjects] = useState([{}]);
+    
+    const dispatch = useDispatch();
 
     /*insert call function inside a useEffect to get information from react store or back end*/
     /*call the retrieval function*/
-
+    useEffect(() => {
+        dispatch(getAllFeed());
+    },[])
+    const saved = useSelector(state => state.saved)
+    console.log(saved);
+    
     return(
         <div className='feed-container'>
-            {savedObjects.map(object => (
-                <NewsCard />
+            {saved.map(object => (
+                <NewsCard object={object} />
             ))}
         </div>
     )
 }
 
-export default NewsList;
+export default SavedList;
 
 
 //Functionally the same as the NewsList component, but will only be fed items from the user's saved list.
