@@ -3,6 +3,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, Ca
 import classnames from 'classnames';
 
 import UserList from "./UserList";
+import NewsList from './newsfeed/default/NewsList';
 import Feed from "./Feed";
 import Saved from "./Saved";
 import Profile from "./Profile";
@@ -66,7 +67,7 @@ const TabbedView = () => {
                 <Row>
                     <Col sm="12">
                         <Jumbotron className="bg-info">
-                            <Feed />
+                            <NewsList />
                         </Jumbotron>
                     </Col>
                 </Row>
