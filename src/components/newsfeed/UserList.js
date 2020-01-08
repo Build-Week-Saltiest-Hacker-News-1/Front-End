@@ -21,7 +21,7 @@ const UserList = () => {
                 <Col xs="1"><h4 className="text-primary">Save</h4></Col>
             </Row>
             {usersList.map((user, index) => 
-                    <UserCard user={ user.salty } id={ index } />    
+                    <UserCard user={ user } id={ index } />    
                 )
             }
         </>
