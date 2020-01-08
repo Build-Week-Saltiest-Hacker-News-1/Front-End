@@ -13,7 +13,7 @@ import {
 import { useFormik } from "formik";
 
 import { useDispatch } from "react-redux";
-import { postLogin } from "./../actions";
+import { postLogin } from "./../../actions";
 import * as Yup from "yup";
 
 const SignIn = props => {

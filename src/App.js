@@ -5,10 +5,10 @@ import PrivateRoute from "./components/PrivateRoute";
 
 //import Feed from "./components/Feed";
 //import Saved from "./components/Saved";
-import SignUp from "./components/SignUp";
-import SignIn from "./components/SignIn";
+import SignUp from "./components/useraccess/SignUp";
+import SignIn from "./components/useraccess/SignIn";
 //import Profile from "./components/Profile";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/nav/Navigation";
 import Welcome from "./components/Welcome";
 import TabbedView from "./components/TabbedView";
 
