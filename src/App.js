@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Container } from "reactstrap";
 import PrivateRoute from "./components/PrivateRoute";
-import { useSelector } from 'react-redux'
 
 //import Feed from "./components/Feed";
 //import Saved from "./components/Saved";
@@ -16,12 +15,11 @@ import TabbedView from "./components/TabbedView";
 
 function App() {
 
-  const loggedIn = useSelector(state => state.isLoggedIn)
 
 
   return (
     <div className="App">
-      <Navigation loggedIn={loggedIn}/>
+      <Navigation />
       <Container>
         <Switch>
 

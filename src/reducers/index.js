@@ -50,6 +50,7 @@ export const Reducers = (state = initialState, action) =>{
         case LOGIN_FAIL:
             return {
             ...state,
+            isLoggingIn: false,
             err: action.payload
             }
 
