@@ -18,11 +18,7 @@ const Profile = () => {
 
   // Swap these two!
   //const userInfo = useSelector(state => state.userInfo);
-  const userInfo = {
-    user: "sample",
-    name: "sample name",
-    email: "sample@sample.com"
-  };
+ 
   return (
     <>
       <Row>&nbsp;</Row>

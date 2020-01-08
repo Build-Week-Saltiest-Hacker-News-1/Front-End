@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { logout } from './../actions'
+
 import {
   Collapse,
   Navbar,
@@ -10,7 +10,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarText
 } from 'reactstrap';
 
 const Navigation = (props) => {
@@ -29,7 +28,7 @@ const Navigation = (props) => {
       return (
           <>
             <NavItem style={{float: "right"}}>
-              <NavLink>
+              <NavLink >
                 {message}
               </NavLink>
             </NavItem>

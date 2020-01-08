@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Jumbotron } from 'reactstrap';
 import classnames from 'classnames';
-
 import UserList from "./UserList";
 import NewsList from './newsfeed/default/NewsList';
-import Feed from "./Feed";
 import Saved from "./Saved";
 import Profile from "./Profile";
 
