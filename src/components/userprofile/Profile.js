@@ -9,15 +9,16 @@ import { getUserData } from "../../actions/index";
 const Profile = () => {
   const id = localStorage.getItem('userid')
   const dispatch = useDispatch();
+  const [editing, setEdit] = useState(false);
+  const userInfo = useSelector(state => state.userInfo);
 
   useEffect(() => {
       dispatch(getUserData(id));
-  },[])
+  },[userInfo])
   
-  const [editing, setEdit] = useState(false);
+  
 
- 
-  const userInfo = useSelector(state => state.userInfo);
+  
   console.log(userInfo)
 
   return (
