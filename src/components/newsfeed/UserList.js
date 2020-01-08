@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Row, Col } from 'reactstrap'
 import axios from 'axios'
 
-import NewsCard from "./NewsCard";
+import UserCard from "./contentcard/UserCard";
 
-const NewsList = () => {
-    const [news, setNews] = useState([])
+const UserList = () => {
+    const [usersList, updateUsers] = useState([])
 
     useEffect(() => {
-        axios.get('https://swapi.co/api/people') //replace with API for ranked by saltiness
+        axios.get('https://swapi.co/api/people')
             .then(res => {
                 console.log(res)
-                setNews(res.data.results)
+                updateUsers(res.data.results)
             })
     }, [])
 
@@ -26,12 +26,12 @@ const NewsList = () => {
                 <Col xs="1"><h4 className="text-primary">Score</h4></Col>
                 <Col xs="1"><h4 className="text-primary">Save</h4></Col>
             </Row>
-            {news.map(user => 
-                    <NewsCard user={ user } />    
+            {usersList.map((user, index) => 
+                    <UserCard user={ user } place={ index } />    
                 )
             }
         </>
     );
 }
 
-export default NewsList;
+export default UserList;

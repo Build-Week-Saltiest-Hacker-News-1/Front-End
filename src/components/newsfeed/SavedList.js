@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import NewsCard from 'NewsCard';
 import {useDispatch, useSelector } from "react-redux"
-import { getSavedFeed } from '../../../actions';
-
+import { getSavedFeed } from '../../actions';
+import UserCard from "./contentcard/UserCard";
 
 const SavedList = (props) => {
     
@@ -19,7 +18,7 @@ const SavedList = (props) => {
     return(
         <div className='feed-container'>
             {saved.map(object => (
-                <NewsCard object={object} />
+                <UserCard object={object} />
             ))}
         </div>
     )

@@ -3,7 +3,7 @@ import { Card, CardTitle, Row, Col, Form, FormGroup, Label, Input, Button } from
 import { useFormik } from 'formik';
 
 import { useDispatch } from 'react-redux'
-import { postRegister} from './../actions'
+import { postRegister} from './../../actions'
 
 import * as Yup from 'yup';
 

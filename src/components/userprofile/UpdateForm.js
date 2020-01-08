@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Card, CardTitle, CardBody, Button, Label, Input, Form } from "reactstrap";
 import {  useDispatch } from "react-redux";
-import { postEditedUser } from "../actions";
-import Validate from "./Validate"
+import { postEditedUser } from "../../actions/";
+import Validate from "../Validate"
 import UserInfo from "./UserInfo"
 
 const initialState = {

@@ -3,7 +3,7 @@ import  {  Row, Col, Button} from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import UpdateForm from "./UpdateForm";
 import UserInfo from "./UserInfo";
-import { getUserData } from "../actions";
+import { getUserData } from "../../actions/index";
 
 
 const Profile = () => {

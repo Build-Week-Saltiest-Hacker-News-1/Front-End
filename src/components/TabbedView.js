@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Jumbotron } from 'reactstrap';
 import classnames from 'classnames';
-import UserList from "./UserList";
-import NewsList from './newsfeed/default/NewsList';
-import Saved from "./Saved";
-import Profile from "./Profile";
+import UserList from "./newsfeed/UserList";
+import NewsList from './newsfeed/NewsList';
+import SavedList from "./newsfeed/SavedList";
+import Profile from "./userprofile/Profile";
 
 const TabbedView = () => {
 
@@ -74,7 +74,7 @@ const TabbedView = () => {
                 <Row>
                     <Col sm='12'>
                         <Jumbotron className="bg-warning">
-                            <Saved />
+                            <SavedList />
                         </Jumbotron>
                     </Col>
                 </Row>
