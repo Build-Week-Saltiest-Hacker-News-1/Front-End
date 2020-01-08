@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, CardTitle, CardBody, Button, Label, Input, Form } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { putEditedUser } from "../../actions/";
+import { putEditedUser, getUserData } from "../../actions/";
 import Validate from "../Validate"
 
 const initialState = {
@@ -32,6 +32,7 @@ const UpdateForm = (props) => {
       setDone(true);
     }
     dispatch(putEditedUser(id, values));
+    dispatch(getUserData(id))
     setEdited(initialState);
 } 
   const userEdit = useSelector(state => state.userEdit);
