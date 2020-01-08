@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from 'reactstrap'
-import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
 
 import UserCard from "./contentcard/UserCard";
+import { getAllFeed } from "../../actions";
 
 const UserList = () => {
-    const [usersList, updateUsers] = useState([])
 
-    useEffect(() => {
-        axios.get('https://swapi.co/api/people')
-            .then(res => {
-                console.log(res)
-                updateUsers(res.data.results)
-            })
+    const dispatch = useDispatch()
+
+    useEffect( () => {
+        dispatch(getAllFeed())
     }, [])
+
+    const usersList = useSelector(state => state.feed)
 
     return (
         <>

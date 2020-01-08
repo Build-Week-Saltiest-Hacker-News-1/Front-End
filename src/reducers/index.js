@@ -9,6 +9,9 @@ import {
     UPDATE_PROFILE_START,
     UPDATE_PROFILE_SUCCESS,
     UPDATE_PROFILE_FAIL,
+    GET_FEED_START,
+    GET_FEED_FAIL,
+    GET_FEED_SUCCESS,
     GET_SAVED_START,
     GET_SAVED_SUCCESS,
     GET_SAVED_FAIL,
@@ -120,6 +123,29 @@ export const Reducers = (state = initialState, action) =>{
                 isFetching: false,
                 err: action.payload
             }
+
+
+            case GET_FEED_START:
+                return{
+                    ...state,
+                    isFetching: true
+                }
+                
+            case GET_FEED_SUCCESS:
+                return{
+                    ...state,
+                    isFetching: false,
+                    feed: action.payload
+                }
+    
+            case GET_FEED_FAIL:
+                return{
+                    ...state,
+                    isFetching: false,
+                    err: action.payload
+                }
+    
+    
 
         case GET_USER_START:
             return{

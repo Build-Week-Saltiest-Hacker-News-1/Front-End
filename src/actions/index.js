@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 export const LOGIN_START = "LOGIN_START";
@@ -15,9 +16,14 @@ export const UPDATE_PROFILE_START = "UPDATE_PROFILE_START"
 export const UPDATE_PROFILE_SUCCESS = "UPDATE_PROFILE_SUCCESS"
 export const UPDATE_PROFILE_FAIL = "UPDATE_PROFILE_FAIL"
 
-export const GET_SAVED_START = "GET_FEED_START";
-export const GET_SAVED_SUCCESS = "GET_FEED_SUCCESS";
-export const GET_SAVED_FAIL = "GET_FEED_FAIL";
+
+export const GET_FEED_START = "GET_FEED_START";
+export const GET_FEED_SUCCESS = "GET_FEED_SUCCESS";
+export const GET_FEED_FAIL = "GET_FEED_FAIL";
+
+export const GET_SAVED_START = "GET_SAVED_START";
+export const GET_SAVED_SUCCESS = "GET_SAVED_SUCCESS";
+export const GET_SAVED_FAIL = "GET_SAVED_FAIL";
 
 export const GET_USER_START = "GET_USER_START";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
@@ -29,7 +35,7 @@ export const POST_EDIT_SUCCESS = "POST_EDIT_SUCCESS";
 export const POST_EDIT_FAIL = "POST_EDIT_FAIL";
 
 
-
+//POST
 export const postLogin = (payload) => dispatch => {
   dispatch({ type: LOGIN_START });
   axiosWithAuth()
@@ -62,7 +68,7 @@ export const logout = () => dispatch => {
   dispatch({type: LOGOUT});
 }
 
-//update profile
+//PUT - update profile
 export const updateProfile = (payload, id) => dispatch => {
   dispatch({type: UPDATE_PROFILE_START});
   axiosWithAuth()
@@ -74,7 +80,28 @@ export const updateProfile = (payload, id) => dispatch => {
   })
 }
 
-//get feed
+
+//GET - get feed
+export const getAllFeed = () => dispatch =>{
+  dispatch({type: GET_FEED_START})
+  axios
+    .get(`https://swapi.co/api/people`)
+    .then(res => {
+      console.log(res.data.results)
+      dispatch({
+        type: GET_FEED_SUCCESS,
+        payload: res.data.results
+      })
+    })
+    .catch( err => {
+      dispatch({
+        type: GET_FEED_FAIL,
+        payload: err.response
+      })
+    })
+}
+
+//get saved feed
 export const getSavedFeed = () => dispatch =>{
   dispatch({type: GET_SAVED_START})
   axiosWithAuth()
@@ -95,7 +122,7 @@ export const getSavedFeed = () => dispatch =>{
 // get user info
 export const getUserData = (id) => dispatch =>{
   dispatch({type: GET_USER_START})
-  axiosWithAuth()
+  axiosWithAuth
     .get(`api/dashboard/${id}`)
     .then(res => {
       dispatch({
@@ -129,6 +156,7 @@ export const getUserData = (id) => dispatch =>{
       })
     })
 }
+
 
 
 

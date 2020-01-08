@@ -1,9 +1,11 @@
 import React from "react";
-import { Row, Col, Table } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-svg-icons'
 const UserCard = (props) => {
+    
     const { user, place } = props;
+    console.log(user)
 
     const placeDisplay = () => {
         if (place < 3) {
