@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import  { Card, CardTitle, CardBody, CardSubtitle, CardText, Row, Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import  { Card, CardTitle, CardBody, CardSubtitle, CardText, Row, Col, Button} from "reactstrap";
 import { useSelector } from "react-redux";
 import UpdateForm from "./UpdateForm";
 import UserInfo from "./UserInfo";
