@@ -20,7 +20,7 @@ const TabbedView = () => {
 
     useEffect(() => {
         dispatch(getDashboard());
-    },[])
+    },[dispatch])
 
     return (
         <div>

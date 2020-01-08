@@ -35,6 +35,11 @@ export const PUT_EDIT_SUCCESS = "PUT_EDIT_SUCCESS";
 export const PUT_EDIT_FAIL = "PUT_EDIT_FAIL";
 
 
+export const DELETE_POST_START = "DELETE_POST_START";
+export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
+export const DELETE_POST_FAIL = "DELETE_POST_FAIL";
+
+
 //POST
 export const postLogin = (payload) => dispatch => {
   dispatch({ type: LOGIN_START });
@@ -68,19 +73,6 @@ export const postRegister = payload => dispatch => {
 export const logout = () => dispatch => {
   dispatch({type: LOGOUT});
 }
-
-//PUT - update profile
-export const updateProfile = (payload, id) => dispatch => {
-  dispatch({type: UPDATE_PROFILE_START});
-  axiosWithAuth()
-    .put(`api/dashboard/:${id}`, payload)
-    .then(res => 
-      dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: res.data }))
-    .catch( err => {
-      dispatch({ type: UPDATE_PROFILE_FAIL, payload: err.response })
-  })
-}
-
 
 //GET - get feed
 export const getAllFeed = () => dispatch =>{
@@ -139,7 +131,7 @@ export const getUserData = (id) => dispatch =>{
     })
 }
 
- // post edited user info
+ // put edited user info
  export const putEditedUser = (id, payload) => dispatch =>{
   dispatch({type: PUT_EDIT_START})
   axiosWithAuth()
@@ -158,6 +150,28 @@ export const getUserData = (id) => dispatch =>{
       })
     })
 }
+
+//delete saved comment
+export const deleteSaved = (id) => dispatch =>{
+  dispatch({type: DELETE_POST_START})
+  axiosWithAuth()
+    .delete(`https://salty-hacker-news.herokuapp.com/api/comments/${id}`)
+    .then(res => {
+      dispatch({
+        type: DELETE_POST_SUCCESS,
+        payload: res.data
+      })
+      
+    })
+    .catch( err => {
+      dispatch({
+        type: DELETE_POST_FAIL,
+        payload: err.response
+      })
+    })
+}
+
+
 
 
 

@@ -14,12 +14,9 @@ const Profile = () => {
 
   useEffect(() => {
       dispatch(getUserData(id));
-  },[userInfo])
-  
-  
+  },[userInfo, id, dispatch])
 
   
-  console.log(userInfo)
 
   return (
     <>
