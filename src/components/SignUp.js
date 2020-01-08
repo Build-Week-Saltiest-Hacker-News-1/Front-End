@@ -99,7 +99,7 @@ const SignUp = () => {
                         <Input
                             id='email'
                             name='email'
-                            type='text'
+                            type='email'
                             onChange={signUp.handleChange}
                             onBlur={signUp.handleBlur}
                             value={signUp.values.email}

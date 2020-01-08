@@ -9,18 +9,22 @@ import {
     UPDATE_PROFILE_START,
     UPDATE_PROFILE_SUCCESS,
     UPDATE_PROFILE_FAIL,
-    GET_FEED_START,
-    GET_FEED_SUCCESS,
-    GET_FEED_FAIL,
+    GET_SAVED_START,
+    GET_SAVED_SUCCESS,
+    GET_SAVED_FAIL,
     GET_USER_START,
     GET_USER_SUCCESS,
-    GET_USER_FAIL
+    GET_USER_FAIL,
+    POST_EDIT_START,
+    POST_EDIT_SUCCESS,
+    POST_EDIT_FAIL
 } from './../actions'
 
 export const initialState = {
     feed : [],
     saved: [],
     userInfo : null,
+    userEdit: [],
     isLoggedIn: false,
     isLoggingIn: false,
     isUpdating: false,
@@ -50,6 +54,7 @@ export const Reducers = (state = initialState, action) =>{
         case LOGIN_FAIL:
             return {
             ...state,
+            isLoggingIn: false,
             err: action.payload
             }
 
@@ -97,19 +102,19 @@ export const Reducers = (state = initialState, action) =>{
                 err: action.payload
             }
 
-        case GET_FEED_START:
+        case GET_SAVED_START:
             return{
                 ...state,
                 isFetching: true
             }
-        case GET_FEED_SUCCESS:
+        case GET_SAVED_SUCCESS:
             return{
                 ...state,
                 isFetching: false,
-                feed: action.payload
+                saved: action.payload
             }
 
-        case GET_FEED_FAIL:
+        case GET_SAVED_FAIL:
             return{
                 ...state,
                 isFetching: false,
@@ -134,10 +139,29 @@ export const Reducers = (state = initialState, action) =>{
                 isFetching: false,
                 err: action.payload
             }
+
+        case POST_EDIT_START:
+            return{
+                ...state,
+                isFetching: true
+            }
+        case POST_EDIT_SUCCESS:
+            return{
+                ...state,
+                isFetching: false,
+                userEdit: action.payload
+            }
+    
+        case POST_EDIT_FAIL:
+            return{
+                ...state,
+                isFetching: false,
+                err: action.payload
+    }
             
 
         default:
-            return state;
+            return state;    
     }
 
 }

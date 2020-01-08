@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from './../actions'
+import { useDispatch, } from 'react-redux';
+import { useHistory } from 'react-router-dom'
+
 import {
   Collapse,
   Navbar,
@@ -9,30 +10,34 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarText
 } from 'reactstrap';
 
 const Navigation = (props) => {
 
+  const { push } = useHistory()
   const dispatch = useDispatch()
+
+  const token = localStorage.getItem('token')
+  const message = localStorage.getItem('welcomemsg')
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   const AuthLinks = () => {
-      const message = useSelector(state => state.message)
       return (
           <>
-            <NavItem>
-              <NavLink>
+            <NavItem style={{float: "right"}}>
+              <NavLink >
                 {message}
               </NavLink>
             </NavItem>
-            <NavItem>
-                <NavLink href="/" onClick={e => {
+            <NavItem style={{float: "right"}}>
+                <NavLink onClick={e => {
                   e.preventDefault();
+                  dispatch({type: "LOGOUT"})
                   localStorage.clear()
-                  dispatch(logout())
+                  push("/")
                 }}>Logout</NavLink>
             </NavItem>
           </>
@@ -42,10 +47,10 @@ const Navigation = (props) => {
   const VisitLinks = () => {
       return (
           <>
-            <NavItem>
+            <NavItem style={{float: "right"}}>
                 <NavLink href="/signin/">Sign In</NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem style={{float: "right"}}>
                 <NavLink href="/signup">Sign Up</NavLink>
             </NavItem>
           </>
@@ -55,11 +60,11 @@ const Navigation = (props) => {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">Salt Mine</NavbarBrand>
+        <NavbarBrand href={token ? '/dashboard' : '/'}>Hacker News Salt Mine</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            { props.loggedIn ?
+            { token ?
                 <AuthLinks /> :
                 <VisitLinks /> 
             }
