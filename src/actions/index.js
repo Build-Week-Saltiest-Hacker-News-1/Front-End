@@ -104,6 +104,7 @@ export const getDashboard = () => dispatch =>{
         type: GET_DASHBOARD_SUCCESS,
         payload: res.data
       })
+      getUserData(localStorage.getItem("id"))
     })
     .catch( err => {
       dispatch({
@@ -140,7 +141,7 @@ export const getUserData = (id) => dispatch =>{
       dispatch({
         type: PUT_EDIT_SUCCESS,
         payload: res.data
-      }, getUserData(id))
+      })
       
     })
     .catch( err => {
