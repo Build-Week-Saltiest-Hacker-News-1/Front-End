@@ -14,13 +14,17 @@ import {
     GET_SAVED_FAIL,
     GET_USER_START,
     GET_USER_SUCCESS,
-    GET_USER_FAIL
+    GET_USER_FAIL,
+    POST_EDIT_START,
+    POST_EDIT_SUCCESS,
+    POST_EDIT_FAIL
 } from './../actions'
 
 export const initialState = {
     feed : [],
     saved: [],
     userInfo : null,
+    userEdit: [],
     isLoggedIn: false,
     isLoggingIn: false,
     isUpdating: false,
@@ -135,10 +139,29 @@ export const Reducers = (state = initialState, action) =>{
                 isFetching: false,
                 err: action.payload
             }
+
+        case POST_EDIT_START:
+            return{
+                ...state,
+                isFetching: true
+            }
+        case POST_EDIT_SUCCESS:
+            return{
+                ...state,
+                isFetching: false,
+                userEdit: action.payload
+            }
+    
+        case POST_EDIT_FAIL:
+            return{
+                ...state,
+                isFetching: false,
+                err: action.payload
+    }
             
 
         default:
-            return state;
+            return state;    
     }
 
 }

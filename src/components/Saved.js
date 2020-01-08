@@ -11,7 +11,7 @@ const Saved = (props) => {
     /*call the retrieval function*/
     useEffect(() => {
         dispatch(getSavedFeed());
-    },[])
+    },)
     const saved = useSelector(state => state.saved)
     console.log(saved);
 

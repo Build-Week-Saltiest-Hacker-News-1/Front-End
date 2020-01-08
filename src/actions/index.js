@@ -24,6 +24,10 @@ export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAIL = "GET_USER_FAIL";
 
 
+export const POST_EDIT_START = "POST_EDIT_START";
+export const POST_EDIT_SUCCESS = "POST_EDIT_SUCCESS";
+export const POST_EDIT_FAIL = "POST_EDIT_FAIL";
+
 
 
 export const postLogin = (payload) => dispatch => {
@@ -102,6 +106,25 @@ export const getUserData = (id) => dispatch =>{
     .catch( err => {
       dispatch({
         type: GET_USER_FAIL,
+        payload: err.response
+      })
+    })
+}
+
+ // post edited user info
+ export const postEditedUser = () => dispatch =>{
+  dispatch({type: POST_EDIT_START})
+  axiosWithAuth()
+    .post(`api/comments`)
+    .then(res => {
+      dispatch({
+        type: POST_EDIT_SUCCESS,
+        payload: res.data
+      })
+    })
+    .catch( err => {
+      dispatch({
+        type: POST_EDIT_FAIL,
         payload: err.response
       })
     })
