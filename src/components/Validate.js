@@ -10,7 +10,7 @@ export default function validate(values) {
     if (values.name.length > 25) {
         error.name = "must be 25 characters or less"
     }
-    if (values.user.length < 20) {
+    if (values.user.length > 10) {
         error.user = "must be 10 characters or less"
     }
     return error;

@@ -34,23 +34,33 @@ const UpdateForm = () => {
   const onSubmit = e => {
     e.preventDefault();
     setErrors(Validate(values));
+    if (values.password.length < 8) {
+      e.stopPropagation();
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+      e.stopPropagation();
+    } else {
+      setDone(true);
+    }
   // dispatch(postEditedUser());
-    setDone(true);
+   
+    
 }
 
   const resetForm = e => {
     e.preventDefault();
     setEdited(initialState);
+    setDone(false);
   }
 
   return (
     <>
-        { done ? <UserInfo/> : ''}
+        
         <Card>
         <CardTitle style={{ margin: "auto", marginTop: "1rem", fontWeight: "bold", fontSize: "2rem" }}>
             {userInfo.user}
           </CardTitle>
           <hr/>
+          { done ? <Label style={{ margin: "auto", fontSize: "1rem", fontWeight: "bold" }}>Profile Edited!</Label> : <Label style={{ margin: "auto", fontSize: "1rem", fontWeight: "bold" }}>Edit Your Profile</Label>}
           <CardBody>
             <Form onSubmit={onSubmit} >
             <Label for="name" style={{ fontWeight: "bold" }}>Name</Label>

@@ -17,7 +17,7 @@ const UserInfo = () => {
           </CardTitle>
           <hr/>
             <CardBody>
-              <Label style={{ marginTop: "0.65rem", fontWeight: "bold", fontSize: "1.5rem" }}>Name</Label>
+              <Label style={{ marginTop: "1.6rem", fontWeight: "bold", fontSize: "1.5rem" }}>Name</Label>
               <CardText style={{  fontSize: "1.2rem" }} >{userInfo.name}</CardText>
               <br />
               <Label style={{ fontWeight: "bold", fontSize: "1.5rem" }}>Username</Label>
@@ -27,7 +27,7 @@ const UserInfo = () => {
               <CardText  style={{  fontSize: "1.2rem" }}  >{userInfo.email}</CardText>
               <br />
               <Label style={{ fontWeight: "bold", fontSize: "1.5rem" }}>Password</Label>
-              <CardText  style={{  fontSize: "1.2rem" }}  >{userInfo.password}</CardText>
+              <CardText  style={{ marginBottom: "1.5rem", fontSize: "1.2rem" }}  >{userInfo.password}</CardText>
               <br />
             </CardBody>
           </Card>
