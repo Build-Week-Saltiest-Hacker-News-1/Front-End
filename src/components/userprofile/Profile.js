@@ -7,18 +7,19 @@ import { getUserData } from "../../actions/index";
 
 
 const Profile = () => {
+  const id = localStorage.getItem('userid')
+  const dispatch = useDispatch();
 
-    // const dispatch = useDispatch();
+  useEffect(() => {
+      dispatch(getUserData(id));
+  },[])
+  
+  const [editing, setEdit] = useState(false);
 
-    // useEffect(() => {
-    //     dispatch(getUserData());
-    // },[])
-    
-    const [editing, setEdit] = useState(false);
-
-  // Swap these two!
-  //const userInfo = useSelector(state => state.userInfo);
  
+  const userInfo = useSelector(state => state.userInfo);
+  console.log(userInfo)
+
   return (
     <>
       <Row>&nbsp;</Row>
@@ -28,7 +29,7 @@ const Profile = () => {
         <Button onClick={() => {setEdit(!editing)}} style={{ width: "100%" }}>
              { editing ? 'Cancel' : 'Edit Profile' } 
             </Button>
-        { editing ?  <UpdateForm /> : <UserInfo /> }
+        { editing ?  <UpdateForm userInfo={userInfo} /> :  <UserInfo userInfo={userInfo} /> }
         <br/>
         </Col>
         <Col xs="3"></Col>

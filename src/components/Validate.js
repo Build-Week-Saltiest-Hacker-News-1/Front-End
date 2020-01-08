@@ -4,9 +4,6 @@ export default function validate(values) {
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
        error.email = "Email address is invalid";
     }
-    if (values.password.length < 8) {
-       error.password = "Password needs to be more than 8 characters";
-    }
     if (values.name.length > 25) {
         error.name = "must be 25 characters or less"
     }

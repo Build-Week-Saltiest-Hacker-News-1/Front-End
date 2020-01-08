@@ -5,7 +5,7 @@ import { faStar, faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-sv
 const UserCard = (props) => {
     
     const { user, id } = props;
-    console.log(user)
+   
 
     const idDisplay = () => {
         if (id < 3) {

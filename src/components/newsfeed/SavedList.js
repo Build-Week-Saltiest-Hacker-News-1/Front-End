@@ -5,13 +5,13 @@ import UserCard from "./contentcard/UserCard";
 
 const SavedList = (props) => {
     
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     /*insert call function inside a useEffect to get information from react store or back end*/
     /*call the retrieval function*/
-    // useEffect(() => {
-    //     dispatch(getSavedFeed());
-    // },[])
+    useEffect(() => {
+        dispatch(getSavedFeed());
+    },[])
     const saved = useSelector(state => state.saved)
     console.log(saved);
     
