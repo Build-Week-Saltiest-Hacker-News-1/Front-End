@@ -148,8 +148,8 @@ export const getUserData = (id) => dispatch =>{
       dispatch({
         type: PUT_EDIT_SUCCESS,
         payload: res.data
-      })
-      getUserData(id)
+      }, getUserData(id))
+      
     })
     .catch( err => {
       dispatch({
