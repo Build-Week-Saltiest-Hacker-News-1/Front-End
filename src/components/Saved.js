@@ -12,12 +12,14 @@ const Saved = (props) => {
     useEffect(() => {
         dispatch(getAllFeed());
     },[])
-    const saved = useSelector(state => state.saved)
-    console.log(saved);
+    const feed = useSelector(state => state.feed)
+    console.log(feed);
+
+    // loop over feed
     
     return(
         <div className='feed-container'>
-         <h1>HI</h1>
+            <h1>Hi there</h1>
         </div>
     )
 }
