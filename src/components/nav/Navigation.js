@@ -13,15 +13,11 @@ import {
 } from 'reactstrap';
 
 const Navigation = (props) => {
-
   const { push } = useHistory()
   const dispatch = useDispatch()
-
   const token = localStorage.getItem('token')
   const message = localStorage.getItem('welcomemsg')
-
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
 
   const AuthLinks = () => {

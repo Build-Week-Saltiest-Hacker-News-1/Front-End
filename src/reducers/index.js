@@ -18,9 +18,9 @@ import {
     GET_USER_START,
     GET_USER_SUCCESS,
     GET_USER_FAIL,
-    POST_EDIT_START,
-    POST_EDIT_SUCCESS,
-    POST_EDIT_FAIL
+    PUT_EDIT_START,
+    PUT_EDIT_SUCCESS,
+    PUT_EDIT_FAIL
 } from './../actions'
 
 import { main, save } from '../dummy'
@@ -29,8 +29,8 @@ export const initialState = {
     feed : main,
     saved: save,
     finaldata: [],
-    userInfo : null,
-    userEdit: [],
+    userInfo : {},
+    userEdit: {},
     isLoggedIn: false,
     isLoggingIn: false,
     isUpdating: false,
@@ -128,27 +128,26 @@ export const Reducers = (state = initialState, action) =>{
             }
 
 
-            case GET_FEED_START:
-                return{
-                    ...state,
-                    isFetching: true
-                }
-                
-            case GET_FEED_SUCCESS:
-                return{
-                    ...state,
-                    isFetching: false,
-                    feed: action.payload
-                }
-    
-            case GET_FEED_FAIL:
-                return{
-                    ...state,
-                    isFetching: false,
-                    err: action.payload
-                }
-    
-    
+        case GET_FEED_START:
+            return{
+                ...state,
+                isFetching: true
+            }
+            
+        case GET_FEED_SUCCESS:
+            return{
+                ...state,
+                isFetching: false,
+                feed: action.payload
+            }
+
+        case GET_FEED_FAIL:
+            return{
+                ...state,
+                isFetching: false,
+                err: action.payload
+            }
+
 
         case GET_USER_START:
             return{
@@ -169,19 +168,19 @@ export const Reducers = (state = initialState, action) =>{
                 err: action.payload
             }
 
-        case POST_EDIT_START:
+        case PUT_EDIT_START:
             return{
                 ...state,
                 isFetching: true
             }
-        case POST_EDIT_SUCCESS:
+        case PUT_EDIT_SUCCESS:
             return{
                 ...state,
                 isFetching: false,
                 userEdit: action.payload
             }
     
-        case POST_EDIT_FAIL:
+        case PUT_EDIT_FAIL:
             return{
                 ...state,
                 isFetching: false,
