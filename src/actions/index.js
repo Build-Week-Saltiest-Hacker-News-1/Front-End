@@ -92,7 +92,7 @@ export const getSavedFeed = () => dispatch =>{
 export const getUserData = (id) => dispatch =>{
   dispatch({type: GET_USER_START})
   axiosWithAuth()
-    .get(`api/dashboard/:${id}`)
+    .get(`api/dashboard/${id}`)
     .then(res => {
       dispatch({
         type: GET_USER_SUCCESS,

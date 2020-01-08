@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardTitle, CardBody, CardSubtitle, CardText, Label } from "reactstrap";
-import { useSelector } from "react-redux";
-
 
 const UserInfo = () => {
-  // Swap these two!
-  const [editing, setEdit] = useState(false);
-  const toggle = () => setEdit(!editing);
-
-  //const userInfo = useSelector(state => state.userInfo);
+  
   const userInfo = {
     user: "Sample Profile ",
     name: "sample name",
@@ -18,19 +12,23 @@ const UserInfo = () => {
   return (
     <>
        <Card>
-       <CardTitle style={{ margin: "auto", marginTop: "1rem", fontWeight: "bold" }}>
+       <CardTitle style={{ margin: "auto", marginTop: "1rem",  fontWeight: "bold", fontSize: "2rem" }}>
             {userInfo.user}
           </CardTitle>
           <hr/>
             <CardBody>
-           
-              <Label style={{ fontWeight: "bold" }}>Name</Label>
-              <CardSubtitle>{userInfo.name}</CardSubtitle>
+              <Label style={{ marginTop: "0.65rem", fontWeight: "bold", fontSize: "1.5rem" }}>Name</Label>
+              <CardText style={{  fontSize: "1.2rem" }} >{userInfo.name}</CardText>
               <br />
-              <Label style={{ fontWeight: "bold" }}>Email</Label>
-              <CardText>{userInfo.email}</CardText>
-              <Label style={{ fontWeight: "bold" }}>Password</Label>
-              <CardText>{userInfo.password}</CardText>
+              <Label style={{ fontWeight: "bold", fontSize: "1.5rem" }}>Username</Label>
+              <CardText style={{  fontSize: "1.2rem" }} >{userInfo.user}</CardText>
+              <br/>
+              <Label style={{ fontWeight: "bold", fontSize: "1.5rem" }}>Email</Label>
+              <CardText  style={{  fontSize: "1.2rem" }}  >{userInfo.email}</CardText>
+              <br />
+              <Label style={{ fontWeight: "bold", fontSize: "1.5rem" }}>Password</Label>
+              <CardText  style={{  fontSize: "1.2rem" }}  >{userInfo.password}</CardText>
+              <br />
             </CardBody>
           </Card>
     </>
