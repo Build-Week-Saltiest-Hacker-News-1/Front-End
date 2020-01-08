@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch} from 'react-redux'
+import { getDashboard } from './../actions' 
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Jumbotron } from 'reactstrap';
 import classnames from 'classnames';
 import UserList from "./newsfeed/UserList";
@@ -8,11 +10,17 @@ import Profile from "./userprofile/Profile";
 
 const TabbedView = () => {
 
+    const dispatch = useDispatch()
+    
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
         if(activeTab !== tab) setActiveTab(tab);
     }
+
+    useEffect(() => {
+        dispatch(getDashboard());
+    },[])
 
     return (
         <div>

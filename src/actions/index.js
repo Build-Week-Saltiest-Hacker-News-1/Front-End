@@ -21,9 +21,9 @@ export const GET_FEED_START = "GET_FEED_START";
 export const GET_FEED_SUCCESS = "GET_FEED_SUCCESS";
 export const GET_FEED_FAIL = "GET_FEED_FAIL";
 
-export const GET_SAVED_START = "GET_SAVED_START";
-export const GET_SAVED_SUCCESS = "GET_SAVED_SUCCESS";
-export const GET_SAVED_FAIL = "GET_SAVED_FAIL";
+export const GET_DASHBOARD_START = "GET_DASHBOARD_START";
+export const GET_DASHBOARD_SUCCESS = "GET_DASHBOARD_SUCCESS";
+export const GET_DASHBOARD_FAIL = "GET_DASHBOARD_FAIL";
 
 export const GET_USER_START = "GET_USER_START";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
@@ -103,19 +103,19 @@ export const getAllFeed = () => dispatch =>{
 }
 
 //get saved feed
-export const getSavedFeed = () => dispatch =>{
-  dispatch({type: GET_SAVED_START})
+export const getDashboard = () => dispatch =>{
+  dispatch({type: GET_DASHBOARD_START})
   axiosWithAuth()
     .get(`api/comments`)
     .then(res => {
       dispatch({
-        type: GET_SAVED_SUCCESS,
+        type: GET_DASHBOARD_SUCCESS,
         payload: res.data
       })
     })
     .catch( err => {
       dispatch({
-        type: GET_SAVED_FAIL,
+        type: GET_DASHBOARD_FAIL,
         payload: err.response
       })
     })

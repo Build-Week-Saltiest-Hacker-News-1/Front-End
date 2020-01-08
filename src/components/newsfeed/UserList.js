@@ -3,17 +3,11 @@ import { Row, Col } from 'reactstrap'
 import { useSelector, useDispatch } from 'react-redux'
 
 import UserCard from "./contentcard/UserCard";
-import { getAllFeed } from "../../actions";
 
 const UserList = () => {
 
-    // const dispatch = useDispatch()
-
-    // useEffect( () => {
-    //     dispatch(getAllFeed())
-    // }, [])
-
-    const usersList = useSelector(state => state.feed)
+    const usersList = useSelector(state => state.finaldata)
+    console.log(usersList)
 
     return (
         <>
@@ -27,7 +21,7 @@ const UserList = () => {
                 <Col xs="1"><h4 className="text-primary">Save</h4></Col>
             </Row>
             {usersList.map((user, index) => 
-                    <UserCard user={ user } id={ index } />    
+                    <UserCard user={ user.salty } id={ index } />    
                 )
             }
         </>

@@ -12,9 +12,9 @@ import {
     GET_FEED_START,
     GET_FEED_FAIL,
     GET_FEED_SUCCESS,
-    GET_SAVED_START,
-    GET_SAVED_SUCCESS,
-    GET_SAVED_FAIL,
+    GET_DASHBOARD_START,
+    GET_DASHBOARD_SUCCESS,
+    GET_DASHBOARD_FAIL,
     GET_USER_START,
     GET_USER_SUCCESS,
     GET_USER_FAIL,
@@ -108,19 +108,20 @@ export const Reducers = (state = initialState, action) =>{
                 err: action.payload
             }
 
-        case GET_SAVED_START:
+        case GET_DASHBOARD_START:
             return{
                 ...state,
                 isFetching: true
             }
-        case GET_SAVED_SUCCESS:
+        case GET_DASHBOARD_SUCCESS:
             return{
                 ...state,
                 isFetching: false,
-                saved: action.payload
-            }
+                saved: action.payload,
+                finaldata: state.feed.map(el => {return {salty: el, isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el))}})
+        }
 
-        case GET_SAVED_FAIL:
+        case GET_DASHBOARD_FAIL:
             return{
                 ...state,
                 isFetching: false,
