@@ -1,35 +1,37 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getDashboard } from "./../../../actions"
 import { Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-svg-icons'
 import { axiosWithAuth } from "../../../utils/axiosWithAuth";
 const UserCard = (props) => {
 
+    const dispatch = useDispatch()
+
     //id is supposed to be rank, but we'll just go with id for now
     const { user, id } = props;
-    // const [ toSave, setToSave ] = useState({
-    //     id: user.id,
-    //     user_id: user.user_id,
-    //     saltyUsername: user.saltyUsername,
-    //     saltyComment: user.saltyComment,
-    //     saltyRank: user.saltyRank,
-    //     isSaved: user.isSaved
-    // })
-    // const [ save, setSave ] = useState(user.isSaved)
+    const userId = localStorage.getItem("userid")
 
-    // const saveClick = e => {
-    //     e.preventDefault()
-    //     axiosWithAuth().post(`api/comments`, {
-    //         id: user.id,
-    //         user_id: user.user_id,
-    //         saltyUsername: user.saltyUsername,
-    //         saltyComment: user.saltyComment,
-    //         saltyRank: user.saltyRank})
-    // }
+    const [ save, setSave ] = useState(user.isSaved)
 
-    // const unSaveClick = e => {
-    //     e.preventDefault()
-    // }
+    const saveClick = e => {
+        e.preventDefault()
+        axiosWithAuth().post(`api/comments`, {
+            id: user.id,
+            user_id: userId,
+            saltyUsername: user.saltyUsername,
+            saltyComment: user.saltyComment,
+            saltyRank: user.saltyRank})
+        dispatch(getDashboard())
+
+    }
+
+    const unSaveClick = e => {
+        e.preventDefault()
+        axiosWithAuth().post(`api/comments/${user.id}`)
+        dispatch(getDashboard())
+    }
    
 
     const idDisplay = () => {
@@ -81,8 +83,8 @@ const UserCard = (props) => {
                     <Col xs="1"><h4 className="text-primary">{user.saltyRank}</h4></Col>
                     {
                         user.isSaved ?
-                        <Col xs="1"><FontAwesomeIcon icon={ faStar } color="gold" size="2x" /></Col> :
-                        <Col xs="1"><FontAwesomeIcon icon={ faStar } color="gray" size="2x" /></Col>
+                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={saveClick} color="gold" size="2x" /></Col> :
+                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={unSaveClick} color="gray" size="2x" /></Col>
                     }
                     
                 </Row>
