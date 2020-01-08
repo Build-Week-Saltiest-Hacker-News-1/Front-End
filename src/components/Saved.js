@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useDispatch, useSelector } from "react-redux"
-import { getAllFeed } from '../actions/index';
+import { getSavedFeed } from '../actions/index';
 
 
 const Saved = (props) => {
@@ -10,14 +10,17 @@ const Saved = (props) => {
     /*insert call function inside a useEffect to get information from react store or back end*/
     /*call the retrieval function*/
     useEffect(() => {
-        dispatch(getAllFeed());
+        dispatch(getSavedFeed());
     },[])
     const saved = useSelector(state => state.saved)
     console.log(saved);
+
+    
     
     return(
         <div className='feed-container'>
-         <h1>HI</h1>
+            {/* loop over saved*/}
+            <h1>Hi there</h1>
         </div>
     )
 }

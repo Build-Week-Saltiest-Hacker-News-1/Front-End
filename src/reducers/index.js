@@ -9,9 +9,9 @@ import {
     UPDATE_PROFILE_START,
     UPDATE_PROFILE_SUCCESS,
     UPDATE_PROFILE_FAIL,
-    GET_FEED_START,
-    GET_FEED_SUCCESS,
-    GET_FEED_FAIL,
+    GET_SAVED_START,
+    GET_SAVED_SUCCESS,
+    GET_SAVED_FAIL,
     GET_USER_START,
     GET_USER_SUCCESS,
     GET_USER_FAIL
@@ -50,6 +50,7 @@ export const Reducers = (state = initialState, action) =>{
         case LOGIN_FAIL:
             return {
             ...state,
+            isLoggingIn: false,
             err: action.payload
             }
 
@@ -97,19 +98,19 @@ export const Reducers = (state = initialState, action) =>{
                 err: action.payload
             }
 
-        case GET_FEED_START:
+        case GET_SAVED_START:
             return{
                 ...state,
                 isFetching: true
             }
-        case GET_FEED_SUCCESS:
+        case GET_SAVED_SUCCESS:
             return{
                 ...state,
                 isFetching: false,
-                feed: action.payload
+                saved: action.payload
             }
 
-        case GET_FEED_FAIL:
+        case GET_SAVED_FAIL:
             return{
                 ...state,
                 isFetching: false,

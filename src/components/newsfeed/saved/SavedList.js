@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NewsCard from 'NewsCard';
 import {useDispatch, useSelector } from "react-redux"
-import { getAllFeed } from '../../../actions';
+import { getSavedFeed } from '../../../actions';
 
 
 const SavedList = (props) => {
@@ -11,7 +11,7 @@ const SavedList = (props) => {
     /*insert call function inside a useEffect to get information from react store or back end*/
     /*call the retrieval function*/
     useEffect(() => {
-        dispatch(getAllFeed());
+        dispatch(getSavedFeed());
     },[])
     const saved = useSelector(state => state.saved)
     console.log(saved);
