@@ -16,8 +16,6 @@ const Profile = () => {
       dispatch(getUserData(id));
   },[userInfo, id, dispatch])
 
-  
-
   return (
     <>
       <Row>&nbsp;</Row>

@@ -123,7 +123,9 @@ export const Reducers = (state = initialState, action) =>{
                 ...state,
                 isFetching: false,
                 saved: action.payload,
-                finaldata: state.feed.map(el => {return {salty: el, isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el))}})
+                finaldata: state.feed.map(el => {
+                    return {
+                        ...el, isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el))}})
         }
 
         case GET_DASHBOARD_FAIL:
