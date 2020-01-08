@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch} from 'react-redux'
 import { getDashboard } from './../actions' 
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Jumbotron } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Jumbotron } from 'reactstrap';
 import classnames from 'classnames';
 import UserList from "./newsfeed/UserList";
 import NewsList from './newsfeed/NewsList';

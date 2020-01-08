@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useDispatch, useSelector } from "react-redux"
 import { getDashboard } from '../../actions';
-import UserCard from "./contentcard/UserCard";
+import SavedCard from "./contentcard/SavedCard"
 
 const SavedList = (props) => {
 
@@ -11,7 +11,7 @@ const SavedList = (props) => {
     return(
         <div className='feed-container'>
             {saved.map(user => (
-                <UserCard user={user} />
+                <SavedCard user={user} />
             ))}
         </div>
     )
