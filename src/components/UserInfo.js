@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardTitle, CardBody, CardSubtitle, CardText, Label } from "reactstrap";
+import { Card, CardTitle, CardBody, CardText, Label } from "reactstrap";
 
 const UserInfo = () => {
   
