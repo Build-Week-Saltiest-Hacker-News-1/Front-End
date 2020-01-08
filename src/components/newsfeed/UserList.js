@@ -7,11 +7,11 @@ import { getAllFeed } from "../../actions";
 
 const UserList = () => {
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    useEffect( () => {
-        dispatch(getAllFeed())
-    }, [])
+    // useEffect( () => {
+    //     dispatch(getAllFeed())
+    // }, [])
 
     const usersList = useSelector(state => state.feed)
 
@@ -27,7 +27,7 @@ const UserList = () => {
                 <Col xs="1"><h4 className="text-primary">Save</h4></Col>
             </Row>
             {usersList.map((user, index) => 
-                    <UserCard user={ user } place={ index } />    
+                    <UserCard user={ user } id={ index } />    
                 )
             }
         </>

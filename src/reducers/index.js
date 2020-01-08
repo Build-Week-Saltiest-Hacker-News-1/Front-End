@@ -23,9 +23,12 @@ import {
     POST_EDIT_FAIL
 } from './../actions'
 
+import { main, save } from '../dummy'
+
 export const initialState = {
-    feed : [],
-    saved: [],
+    feed : main,
+    saved: save,
+    finaldata: [],
     userInfo : null,
     userEdit: [],
     isLoggedIn: false,
