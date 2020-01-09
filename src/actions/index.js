@@ -95,16 +95,18 @@ export const getAllFeed = () => dispatch =>{
 }
 
 //get saved feed
-export const getDashboard = () => dispatch =>{
+export const getDashboard = (id) => dispatch =>{
   dispatch({type: GET_DASHBOARD_START})
-  axiosWithAuth()
-    .get(`api/comments`)
-    .then(res => {
-      dispatch({
-        type: GET_DASHBOARD_SUCCESS,
-        payload: res.data
+  axiosWithAuth().get(`api/feed/`)
+    .then(res1 => {
+      axiosWithAuth().get(`api/comments/${id}`)
+      .then( res2 => {
+        dispatch({
+            type: GET_DASHBOARD_SUCCESS, 
+            payload: [res1.data, res2.data]
+        })
+        dispatch({ type: "COMPLETE_DATA"})
       })
-      getUserData(localStorage.getItem("id"))
     })
     .catch( err => {
       dispatch({
@@ -114,6 +116,7 @@ export const getDashboard = () => dispatch =>{
     })
 }
 // get user info
+
 export const getUserData = (id) => dispatch =>{
   dispatch({type: GET_USER_START})
   axiosWithAuth()

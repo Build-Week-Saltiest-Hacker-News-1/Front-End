@@ -3,11 +3,11 @@ import { Card, CardTitle, Row, Col, Form, FormGroup, Label, Input, Button } from
 import { useFormik } from 'formik';
 
 import { useDispatch } from 'react-redux'
-import { postRegister} from './../../actions'
+import { postRegister } from './../../actions'
 
 import * as Yup from 'yup';
 
-const SignUp = () => {
+const SignUp = (props) => {
 
   const dispatch = useDispatch()
 
@@ -19,6 +19,8 @@ const SignUp = () => {
       email: signUp.values.email,
       password: signUp.values.password
     } 
+    const values = { name: signUp.values.name,
+      user: signUp.values.user }
     dispatch(postRegister(validValue))
   }
 
