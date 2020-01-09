@@ -24,7 +24,10 @@ const Navigation = (props) => {
       return (
           <>
             <NavItem style={{float: "right"}}>
-              <NavLink >
+              <NavLink onClick={e => {
+                e.preventDefault();
+                push("/dashboard")
+              }}>
                 {message}
               </NavLink>
             </NavItem>
