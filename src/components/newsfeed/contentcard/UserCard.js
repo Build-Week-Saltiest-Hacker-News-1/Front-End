@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { saveClick, unSaveClick } from "./../../../actions"
-import { axiosWithAuth } from "../../../utils/axiosWithAuth";
+import { saveComment, deleteSaved } from "./../../../actions"
 
 import { Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,25 +9,24 @@ import { faStar, faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-sv
 const UserCard = (props) => {
 
     const dispatch = useDispatch()
-
-    //id is supposed to be rank, but we'll just go with id for now
     const { user, id } = props;
     const userId = localStorage.getItem("userid")
 
+    const [ value ] = useState({
+        user_id: parseInt(userId),
+        saltyComment: user.saltyComment,
+        saltyRank: user.saltyRank,
+        saltyUsername: user.saltyUsername
+    })
+
     const handleSave = e => {
         e.preventDefault()
-        dispatch(saveClick({
-            id: user.id,
-            user_id: userId,
-            saltyUsername: user.saltyUsername,
-            saltyRank: user.saltyRank,
-            saltyComment: user.saltyComment
-        }))
+        dispatch(saveComment(value, userId))
     }
 
     const handleUnSave = e => {
         e.preventDefault()
-        dispatch(unSaveClick(userId))
+        dispatch(deleteSaved(id, userId))
     }
 
 

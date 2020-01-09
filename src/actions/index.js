@@ -11,11 +11,9 @@ export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 
-//update profile
 export const UPDATE_PROFILE_START = "UPDATE_PROFILE_START"
 export const UPDATE_PROFILE_SUCCESS = "UPDATE_PROFILE_SUCCESS"
 export const UPDATE_PROFILE_FAIL = "UPDATE_PROFILE_FAIL"
-
 
 export const GET_FEED_START = "GET_FEED_START";
 export const GET_FEED_SUCCESS = "GET_FEED_SUCCESS";
@@ -41,17 +39,13 @@ export const PUT_EDIT_START = "PUT_EDIT_START";
 export const PUT_EDIT_SUCCESS = "PUT_EDIT_SUCCESS";
 export const PUT_EDIT_FAIL = "PUT_EDIT_FAIL";
 
-
 export const DELETE_POST_START = "DELETE_POST_START";
 export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
 export const DELETE_POST_FAIL = "DELETE_POST_FAIL";
 
-export const GET_SAVED_START = "GET_SAVED_START";
-export const GET_SAVED_SUCCESS = "GET_SAVED_SUCCESS";
-export const GET_SAVED_FAIL = "GET_SAVED_FAIL";
 
 
-//POST
+
 export const postLogin = (payload) => dispatch => {
   dispatch({ type: LOGIN_START });
   axiosWithAuth()
@@ -82,7 +76,7 @@ export const postRegister = payload => dispatch => {
 };
 
 export const logout = () => dispatch => {
-  dispatch({type: LOGOUT});
+  dispatch({ type: LOGOUT });
 }
 
 //GET - get feed
@@ -92,16 +86,10 @@ export const getAllFeed = () => dispatch =>{
     .get(`https://swapi.co/api/people`)
     .then(res => {
       console.log(res.data.results)
-      dispatch({
-        type: GET_FEED_SUCCESS,
-        payload: res.data.results
-      })
+      dispatch({ type: GET_FEED_SUCCESS, payload: res.data.results })
     })
     .catch( err => {
-      dispatch({
-        type: GET_FEED_FAIL,
-        payload: err.response
-      })
+      dispatch({ type: GET_FEED_FAIL, payload: err.response })
     })
 }
 
@@ -112,114 +100,65 @@ export const getDashboard = (id) => dispatch =>{
     .then(res1 => {
       axiosWithAuth().get(`api/comments/${id}`)
       .then( res2 => {
-        dispatch({
-            type: GET_DASHBOARD_SUCCESS, 
-            payload: [res1.data, res2.data]
-        })
+        dispatch({ type: GET_DASHBOARD_SUCCESS, payload: [res1.data, res2.data] })
         dispatch({ type: "COMPLETE_DATA"})
       })
     })
     .catch( err => {
-      dispatch({
-        type: GET_DASHBOARD_FAIL,
-        payload: err.response
-      })
+      dispatch({ type: GET_DASHBOARD_FAIL, payload: err.response })
     })
 }
-// get user info
 
 export const getUserData = (id) => dispatch =>{
   dispatch({type: GET_USER_START})
   axiosWithAuth()
     .get(`api/dashboard/${id}`)
     .then(res => {
-      dispatch({
-        type: GET_USER_SUCCESS,
-        payload: res.data
-      })
+      dispatch({ type: GET_USER_SUCCESS, payload: res.data })
     })
     .catch( err => {
-      dispatch({
-        type: GET_USER_FAIL,
-        payload: err.response
-      })
+      dispatch({ type: GET_USER_FAIL, payload: err.response })
     })
 }
 
- // put edited user info
  export const putEditedUser = (id, payload) => dispatch =>{
   dispatch({type: PUT_EDIT_START})
   axiosWithAuth()
     .put(`api/dashboard/${id}`, payload)
     .then(res => {
-      dispatch({
-        type: PUT_EDIT_SUCCESS,
-        payload: res.data
-      })
-      
+      dispatch({ type: PUT_EDIT_SUCCESS, payload: res.data })
     })
+
     .catch( err => {
-      dispatch({
-        type: PUT_EDIT_FAIL,
-        payload: err.response
-      })
+      dispatch({ type: PUT_EDIT_FAIL, payload: err.response })
     })
 }
 
 //delete saved comment
-export const deleteSaved = (id) => dispatch =>{
-  dispatch({type: DELETE_POST_START})
+export const deleteSaved = (id, userid) => dispatch =>{
+  dispatch({ type: DELETE_POST_START })
   axiosWithAuth()
-    .delete(`api/feed/${id}`)
-    .then(res => {
-      dispatch({
-        type: DELETE_POST_SUCCESS,
-        payload: res.data
+    .delete(`api/comments/${id}`)
+    .then(axiosWithAuth().get(`api/comments/${userid}`)
+      .then( res => {
+        dispatch({ type: DELETE_POST_SUCCESS, payload: res.data })
+        dispatch({ type: "COMPLETE_DATA"})
       })
-      
-    })
+    )
     .catch( err => {
-      dispatch({
-        type: DELETE_POST_FAIL,
-        payload: err.response
-      })
+      dispatch({ type: DELETE_POST_FAIL, payload: err.response })
     })
 }
 
-export const getSaved = () => dispatch =>{
-  dispatch({ type: GET_SAVED_START })
-  axiosWithAuth()
-    .get(`api/comments/:id`)
-    .then(res => {
-      dispatch({
-        type: GET_SAVED_SUCCESS,
-        payload: res.data
-      })
-    })
-    .catch( err => {
-      dispatch({
-        type: GET_SAVED_FAIL,
-        payload: err.response
-      })
-    })
-}
-
-export const saveClick = item => dispatch => {
+export const saveComment= (item, userid) => dispatch => {
   dispatch({ type: SAVE_START, payload: item})
   axiosWithAuth().post(`api/comments/`, item)
-  .then(res => 
-    dispatch({ type: SAVE_SUCCESS,
-      payload: res.data })
-    )
-  .catch(err => dispatch({ type: SAVE_FAIL }))
+  .then(axiosWithAuth().get(`api/comments/${userid}`)
+  .then( res => {
+    dispatch({ type: SAVE_SUCCESS, payload: res.data })
+    dispatch({ type: "COMPLETE_DATA"})
+  })
+  )
+  .catch(err => dispatch({ type: SAVE_FAIL, payload: err.response }))
 }
-
-export const unSaveClick = id => dispatch => {
-  dispatch({ type: UNSAVE_START})
-  axiosWithAuth().delete(`api/comments/${id}`)
-  .then(dispatch(getDashboard(id)))
-  .catch(err => dispatch({ type: SAVE_FAIL }))
-}
-
-
 

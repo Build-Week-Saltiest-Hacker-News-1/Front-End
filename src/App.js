@@ -23,7 +23,6 @@ function App() {
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <PrivateRoute path="/dashboard" component={TabbedView} /> :
-          
         </Switch>
       </Container>
     </div>

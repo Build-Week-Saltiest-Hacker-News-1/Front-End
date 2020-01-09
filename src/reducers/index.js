@@ -2,31 +2,37 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+
     LOGOUT,
+
     REGISTER_START,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
+
     UPDATE_PROFILE_START,
     UPDATE_PROFILE_SUCCESS,
     UPDATE_PROFILE_FAIL,
+
     GET_FEED_START,
     GET_FEED_FAIL,
     GET_FEED_SUCCESS,
+
     GET_DASHBOARD_START,
     GET_DASHBOARD_SUCCESS,
     GET_DASHBOARD_FAIL,
+
     GET_USER_START,
     GET_USER_SUCCESS,
     GET_USER_FAIL,
+
     PUT_EDIT_START,
     PUT_EDIT_SUCCESS,
     PUT_EDIT_FAIL,
+
     DELETE_POST_START,
     DELETE_POST_SUCCESS,
     DELETE_POST_FAIL,
-    GET_SAVED_START,
-    GET_SAVED_SUCCESS,
-    GET_SAVED_FAIL,
+
     SAVE_SUCCESS
 
 } from './../actions'
@@ -143,7 +149,7 @@ export const Reducers = (state = initialState, action) =>{
         case SAVE_SUCCESS:
             return {
                 ...state,
-                saved: [...state.saved, action.payload]
+                saved: action.payload
             }
 
         case GET_DASHBOARD_FAIL:
@@ -173,7 +179,6 @@ export const Reducers = (state = initialState, action) =>{
                 isFetching: false,
                 err: action.payload
             }
-
 
         case GET_USER_START:
             return{
@@ -229,30 +234,7 @@ export const Reducers = (state = initialState, action) =>{
                 ...state,
                 isDeleting: false,
                 err: action.payload
-    }     
-
-        case GET_SAVED_START:
-            return{
-                ...state,
-                isFetching: true
-            }
-            
-        case GET_SAVED_SUCCESS:
-            return{
-                ...state,
-                isFetching: false,
-                saved: action.payload
-            }
-
-        case GET_SAVED_FAIL:
-            return{
-                ...state,
-                isFetching: false,
-                err: action.payload
-            }
-
-
-            
+    }       
 
         default:
             return state;    
