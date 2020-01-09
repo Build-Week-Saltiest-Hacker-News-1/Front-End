@@ -143,7 +143,7 @@ export const Reducers = (state = initialState, action) =>{
                         ...el,
                         isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el.saltyUsername)) && JSON.stringify(state.saved).includes(JSON.stringify(el.saltyComment))
                     }  
-                })
+                }).sort((a,b) => (a.saltyRank < b.saltyRank) ? 1: -1)
             }
         
         case SAVE_SUCCESS:
