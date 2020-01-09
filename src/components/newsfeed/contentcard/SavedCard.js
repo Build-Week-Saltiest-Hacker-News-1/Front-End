@@ -10,6 +10,8 @@ const SavedCard = (props) => {
 
     const dispatch = useDispatch()
     const { user } = props;
+    const comment = `Look at this comment from Salty Hacker News: "${user.saltyComment}"`;
+    const tweetURL = `http://twitter.com/intent/tweet?text=${comment}`;
 
     const handleDelete = e => {
         e.preventDefault()
@@ -28,6 +30,7 @@ const SavedCard = (props) => {
                     <Col xs="1"></Col>
                     <Col xs="1"><h4 className="text-primary">{user.saltyRank}</h4></Col>
                     <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleDelete} color="gold" size="2x" /></Col>
+                    <Col xs="3"><a class="twitter-share-button" href={tweetURL}>Tweet</a></Col>
                 </Row>
             </div>
             <Row>&nbsp;</Row>
