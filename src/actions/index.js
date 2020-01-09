@@ -39,6 +39,10 @@ export const DELETE_POST_START = "DELETE_POST_START";
 export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
 export const DELETE_POST_FAIL = "DELETE_POST_FAIL";
 
+export const GET_SAVED_START = "GET_SAVED_START";
+export const GET_SAVED_SUCCESS = "GET_SAVED_SUCCESS";
+export const GET_SAVED_FAIL = "GET_SAVED_FAIL";
+
 
 //POST
 export const postLogin = (payload) => dispatch => {
@@ -156,7 +160,7 @@ export const getUserData = (id) => dispatch =>{
 export const deleteSaved = (id) => dispatch =>{
   dispatch({type: DELETE_POST_START})
   axiosWithAuth()
-    .delete(`https://salty-hacker-news.herokuapp.com/api/comments/${id}`)
+    .delete(`api/feed/${id}`)
     .then(res => {
       dispatch({
         type: DELETE_POST_SUCCESS,
@@ -167,6 +171,24 @@ export const deleteSaved = (id) => dispatch =>{
     .catch( err => {
       dispatch({
         type: DELETE_POST_FAIL,
+        payload: err.response
+      })
+    })
+}
+
+export const getSaved = () => dispatch =>{
+  dispatch({type: GET_SAVED_START})
+  axiosWithAuth()
+    .get(`api/comments/:id`)
+    .then(res => {
+      dispatch({
+        type: GET_SAVED_SUCCESS,
+        payload: res.data
+      })
+    })
+    .catch( err => {
+      dispatch({
+        type: GET_SAVED_FAIL,
         payload: err.response
       })
     })

@@ -23,7 +23,10 @@ import {
     PUT_EDIT_FAIL,
     DELETE_POST_START,
     DELETE_POST_SUCCESS,
-    DELETE_POST_FAIL
+    DELETE_POST_FAIL,
+    GET_SAVED_START,
+    GET_SAVED_SUCCESS,
+    GET_SAVED_FAIL
 
 } from './../actions'
 
@@ -31,7 +34,7 @@ import { main, save } from '../dummy'
 
 export const initialState = {
     feed : main,
-    saved: save,
+    saved: [],
     finaldata: [],
     userInfo : {},
     userEdit: {},
@@ -211,7 +214,29 @@ export const Reducers = (state = initialState, action) =>{
                 ...state,
                 isDeleting: false,
                 err: action.payload
-    }
+    }     
+
+        case GET_SAVED_START:
+            return{
+                ...state,
+                isFetching: true
+            }
+            
+        case GET_SAVED_SUCCESS:
+            return{
+                ...state,
+                isFetching: false,
+                saved: action.payload
+            }
+
+        case GET_SAVED_FAIL:
+            return{
+                ...state,
+                isFetching: false,
+                err: action.payload
+            }
+
+
             
 
         default:

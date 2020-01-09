@@ -55,8 +55,10 @@ const SavedCard = (props) => {
                     );
                 default:
                 return (
-                    <div>Oops.</div>
-                )
+                    <div style={{textAlign: "center"}}>
+                    <h4>{ id + 1 }</h4>
+                </div>
+                );
             }
         }
         else {
