@@ -29,6 +29,13 @@ export const GET_USER_START = "GET_USER_START";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAIL = "GET_USER_FAIL";
 
+export const SAVE_START = "SAVE_START"
+export const SAVE_SUCCESS = "SAVE_SUCCESS"
+export const SAVE_FAIL = "SAVE_FAIL"
+
+export const UNSAVE_START = "UNSAVE_START"
+export const UNSAVE_SUCCESS = "UNSAVE_SUCCESS"
+export const UNSAVE_FAIL = "UNSAVE_FAIL"
 
 export const PUT_EDIT_START = "PUT_EDIT_START";
 export const PUT_EDIT_SUCCESS = "PUT_EDIT_SUCCESS";
@@ -180,7 +187,7 @@ export const deleteSaved = (id) => dispatch =>{
 }
 
 export const getSaved = () => dispatch =>{
-  dispatch({type: GET_SAVED_START})
+  dispatch({ type: GET_SAVED_START })
   axiosWithAuth()
     .get(`api/comments/:id`)
     .then(res => {
@@ -197,8 +204,22 @@ export const getSaved = () => dispatch =>{
     })
 }
 
+export const saveClick = item => dispatch => {
+  dispatch({ type: SAVE_START, payload: item})
+  axiosWithAuth().post(`api/comments/`, item)
+  .then(res => 
+    dispatch({ type: SAVE_SUCCESS,
+      payload: res.data })
+    )
+  .catch(err => dispatch({ type: SAVE_FAIL }))
+}
 
-
+export const unSaveClick = id => dispatch => {
+  dispatch({ type: UNSAVE_START})
+  axiosWithAuth().delete(`api/comments/${id}`)
+  .then(dispatch(getDashboard(id)))
+  .catch(err => dispatch({ type: SAVE_FAIL }))
+}
 
 
 

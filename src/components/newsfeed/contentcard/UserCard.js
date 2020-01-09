@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getDashboard } from "./../../../actions"
+import { saveClick, unSaveClick } from "./../../../actions"
 import { axiosWithAuth } from "../../../utils/axiosWithAuth";
 
 import { Row, Col } from "reactstrap";
@@ -15,26 +15,22 @@ const UserCard = (props) => {
     const { user, id } = props;
     const userId = localStorage.getItem("userid")
 
-    const [ save, setSave ] = useState(user.isSaved)
-
-    const saveClick = e => {
+    const handleSave = e => {
         e.preventDefault()
-        axiosWithAuth().post(`api/comments`, {
+        dispatch(saveClick({
             id: user.id,
             user_id: userId,
             saltyUsername: user.saltyUsername,
-            saltyComment: user.saltyComment,
-            saltyRank: user.saltyRank})
-        dispatch(getDashboard())
-
+            saltyRank: user.saltyRank,
+            saltyComment: user.saltyComment
+        }))
     }
 
-    const unSaveClick = e => {
+    const handleUnSave = e => {
         e.preventDefault()
-        axiosWithAuth().post(`api/comments/${user.id}`)
-        dispatch(getDashboard())
+        dispatch(unSaveClick(userId))
     }
-   
+
 
     const idDisplay = () => {
         if (id < 3) {
@@ -85,8 +81,8 @@ const UserCard = (props) => {
                     <Col xs="1"><h4 className="text-primary">{user.saltyRank}</h4></Col>
                     {
                         user.isSaved ?
-                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={saveClick} color="gold" size="2x" /></Col> :
-                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={unSaveClick} color="gray" size="2x" /></Col>
+                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleUnSave} color="gold" size="2x" /></Col> :
+                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleSave} color="gray" size="2x" /></Col>
                     }
                     
                 </Row>

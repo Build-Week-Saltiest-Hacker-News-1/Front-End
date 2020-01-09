@@ -26,7 +26,8 @@ import {
     DELETE_POST_FAIL,
     GET_SAVED_START,
     GET_SAVED_SUCCESS,
-    GET_SAVED_FAIL
+    GET_SAVED_FAIL,
+    SAVE_SUCCESS
 
 } from './../actions'
 
@@ -137,6 +138,12 @@ export const Reducers = (state = initialState, action) =>{
                         isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el))
                     }  
                 })
+            }
+        
+        case SAVE_SUCCESS:
+            return {
+                ...state,
+                saved: [...state.saved, action.payload]
             }
 
         case GET_DASHBOARD_FAIL:

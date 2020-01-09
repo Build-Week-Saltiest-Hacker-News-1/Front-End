@@ -19,7 +19,6 @@ function App() {
       <Navigation />
       <Container>
         <Switch>
-
           <Route exact path="/" component={Welcome} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
