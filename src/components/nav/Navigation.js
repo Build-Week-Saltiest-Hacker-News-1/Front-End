@@ -24,7 +24,10 @@ const Navigation = (props) => {
       return (
           <>
             <NavItem style={{float: "right"}}>
-              <NavLink >
+              <NavLink onClick={e => {
+                e.preventDefault();
+                push("/dashboard")
+              }}>
                 {message}
               </NavLink>
             </NavItem>
@@ -65,7 +68,6 @@ const Navigation = (props) => {
                 <VisitLinks /> 
             }
           </Nav>
-          
         </Collapse>
       </Navbar>
     </div>
