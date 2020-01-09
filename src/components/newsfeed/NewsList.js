@@ -9,15 +9,8 @@ const NewsList = () => {
     const [news, setNews] = useState([])
 
     useEffect(() => {
-        /*
-        axios.get('https://swapi.co/api/people') //replace with API for ranked by saltiness
-            .then(res => {
-                console.log(res)
-                setNews(res.data.results)
-            })
-            */
-        axiosWithAuth()
-        .get('/url')
+        axios
+        .get("https://salty-hacker-news.herokuapp.com/api/feed")
         .then(res => {
             setNews(res.data)
         })

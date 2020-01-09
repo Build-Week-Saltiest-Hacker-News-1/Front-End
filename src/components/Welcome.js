@@ -9,12 +9,17 @@ const Welcome = () => {
     const [usersList, updateUsers] = useState([])
 
     useEffect(() => {
-        axios.get('https://swapi.co/api/people')
-            .then(res => {
-                console.log(res)
-                updateUsers(res.data.results)
-            })
-    }, [])
+        axios
+        .get("https://salty-hacker-news.herokuapp.com/api/feed")
+        .then(res => {
+            
+            updateUsers(res.data.sort((a,b) => (a.saltyRank < b.saltyRank) ? 1: -1))
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        }, [])
 
     return (
         <Jumbotron className="bg-info">
