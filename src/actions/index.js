@@ -1,5 +1,8 @@
 import axios from 'axios'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { useSelector } from 'react-redux'
+
+
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -151,6 +154,7 @@ export const deleteSaved = (id, userid) => dispatch =>{
 }
 
 export const saveComment= (item, userid) => dispatch => {
+ 
   dispatch({ type: SAVE_START, payload: item})
   axiosWithAuth().post(`api/comments/`, item)
   .then(axiosWithAuth().get(`api/comments/${userid}`)
@@ -160,5 +164,6 @@ export const saveComment= (item, userid) => dispatch => {
   })
   )
   .catch(err => dispatch({ type: SAVE_FAIL, payload: err.response }))
+
 }
 
