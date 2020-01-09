@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getDashboard } from "./../../../actions"
-import { axiosWithAuth } from "../../../utils/axiosWithAuth";
+import { saveComment, deleteSaved } from "./../../../actions"
 
 import { Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,31 +9,26 @@ import { faStar, faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-sv
 const UserCard = (props) => {
 
     const dispatch = useDispatch()
-
-    //id is supposed to be rank, but we'll just go with id for now
     const { user, id } = props;
     const userId = localStorage.getItem("userid")
 
-    const [ save, setSave ] = useState(user.isSaved)
+    const [ value ] = useState({
+        user_id: parseInt(userId),
+        saltyComment: user.saltyComment,
+        saltyRank: user.saltyRank,
+        saltyUsername: user.saltyUsername
+    })
 
-    const saveClick = e => {
+    const handleSave = e => {
         e.preventDefault()
-        axiosWithAuth().post(`api/comments`, {
-            id: user.id,
-            user_id: userId,
-            saltyUsername: user.saltyUsername,
-            saltyComment: user.saltyComment,
-            saltyRank: user.saltyRank})
-        dispatch(getDashboard())
-
+        dispatch(saveComment(value, userId))
     }
 
-    const unSaveClick = e => {
+    const handleUnSave = e => {
         e.preventDefault()
-        axiosWithAuth().post(`api/comments/${user.id}`)
-        dispatch(getDashboard())
+        dispatch(deleteSaved(id, userId))
     }
-   
+
 
     const idDisplay = () => {
         if (id < 3) {
@@ -85,8 +79,8 @@ const UserCard = (props) => {
                     <Col xs="1"><h4 className="text-primary">{user.saltyRank}</h4></Col>
                     {
                         user.isSaved ?
-                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={saveClick} color="gold" size="2x" /></Col> :
-                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={unSaveClick} color="gray" size="2x" /></Col>
+                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleUnSave} color="gold" size="2x" /></Col> :
+                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleSave} color="gray" size="2x" /></Col>
                     }
                     
                 </Row>
