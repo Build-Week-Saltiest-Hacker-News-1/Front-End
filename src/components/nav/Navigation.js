@@ -68,7 +68,6 @@ const Navigation = (props) => {
                 <VisitLinks /> 
             }
           </Nav>
-          
         </Collapse>
       </Navbar>
     </div>
