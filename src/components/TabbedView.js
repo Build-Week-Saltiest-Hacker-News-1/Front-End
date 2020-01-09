@@ -11,7 +11,7 @@ import Profile from "./userprofile/Profile";
 const TabbedView = () => {
 
     const dispatch = useDispatch()
-    
+    const userid = localStorage.getItem("userid")
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
@@ -19,7 +19,7 @@ const TabbedView = () => {
     }
 
     useEffect(() => {
-        dispatch(getDashboard());
+        dispatch(getDashboard(userid));
     },[dispatch])
 
     return (

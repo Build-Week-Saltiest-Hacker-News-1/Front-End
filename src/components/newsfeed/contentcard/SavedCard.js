@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { axiosWithAuth } from "../../../utils/axiosWithAuth";
+
 import { Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-svg-icons'
-import { axiosWithAuth } from "../../../utils/axiosWithAuth";
+
 const SavedCard = (props) => {
 
     //id is supposed to be rank, but we'll just go with id for now
