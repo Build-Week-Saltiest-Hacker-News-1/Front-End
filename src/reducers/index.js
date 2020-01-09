@@ -30,8 +30,8 @@ import {
 import { main, save } from '../dummy'
 
 export const initialState = {
-    feed : main,
-    saved: save,
+    feed : [],
+    saved: [],
     finaldata: [],
     userInfo : {},
     userEdit: {},
@@ -122,11 +122,19 @@ export const Reducers = (state = initialState, action) =>{
             return{
                 ...state,
                 isFetching: false,
-                saved: action.payload,
-                finaldata: state.feed.map(el => {
+                feed: action.payload[0] ,               
+                saved: action.payload[1],
+            }
+        case "COMPLETE_DATA":
+            return{
+                ...state,
+                finaldata : state.feed.map(el => {
                     return {
-                        ...el, isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el))}})
-        }
+                        ...el,
+                        isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el))
+                    }  
+                })
+            }
 
         case GET_DASHBOARD_FAIL:
             return{

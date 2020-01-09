@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getDashboard } from "./../../../actions"
+import { axiosWithAuth } from "../../../utils/axiosWithAuth";
+
 import { Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faAward, faMedal, faBiohazard} from '@fortawesome/free-solid-svg-icons'
-import { axiosWithAuth } from "../../../utils/axiosWithAuth";
+
 const UserCard = (props) => {
 
     const dispatch = useDispatch()
