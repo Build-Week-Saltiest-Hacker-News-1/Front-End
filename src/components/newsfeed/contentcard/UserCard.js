@@ -19,14 +19,19 @@ const UserCard = (props) => {
         saltyUsername: user.saltyUsername
     })
 
+    const [ save, setSave ] = useState({isSaved: false})
+
+    
     const handleSave = e => {
         e.preventDefault()
         dispatch(saveComment(value, userId))
+        setSave({ ...save, isSaved: true})
     }
 
     const handleUnSave = e => {
         e.preventDefault()
         dispatch(deleteSaved(id, userId))
+        setSave({ ...save, isSaved: false})
     }
 
 
