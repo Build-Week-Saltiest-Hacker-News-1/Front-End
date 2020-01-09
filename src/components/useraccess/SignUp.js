@@ -1,14 +1,14 @@
 import React from 'react';
 import { Card, CardTitle, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { useFormik } from 'formik';
-
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { postRegister } from './../../actions'
 
 import * as Yup from 'yup';
 
 const SignUp = (props) => {
-
+  const { push } = useHistory()
   const dispatch = useDispatch()
 
   const handleSignUp = e => {
@@ -22,14 +22,16 @@ const SignUp = (props) => {
     const values = { name: signUp.values.name,
       user: signUp.values.user }
     dispatch(postRegister(validValue))
+    alert('Account Registered!')
+    push("/signin/")
   }
 
   const signUp = useFormik({
     initialValues: {
-      name: 'Your Full Name',
-      user: 'Username',
-      email: 'Your Email Address',
-      password: 'Your Password'
+      name: '',
+      user: '',
+      email: '',
+      password: ''
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -64,16 +66,18 @@ const SignUp = (props) => {
             <Col xs='3'></Col>
             <Col xs='6'>
               <Card>
-                <CardTitle>Sign Up:</CardTitle>
+                <CardTitle style={{ margin: 'auto', fontWeight: 'bold', marginTop: '1rem', fontSize: '2rem' }} >Create an Account</CardTitle>
                 <Col xs='12'>
                   <Form onSubmit={handleSignUp}>
                     <FormGroup>
                       <Label for='name'>Name</Label>
                       <Col xs='12'>
                         <Input
+                            required
                             id='name'
                             name='name'
                             type='text'
+                            placeholder='Your Full Name'
                             onChange={signUp.handleChange}
                             onBlur={signUp.handleBlur}
                             value={signUp.values.name}
@@ -85,9 +89,11 @@ const SignUp = (props) => {
                       <Label for='user'>Username</Label>
                       <Col xs='12'>
                         <Input
+                            required
                             id='user'
                             name='user'
                             type='text'
+                            placeholder='Username'
                             onChange={signUp.handleChange}
                             onBlur={signUp.handleBlur}
                             value={signUp.values.user}
@@ -99,9 +105,11 @@ const SignUp = (props) => {
                       <Label for='email'>Email</Label>
                       <Col xs='12'>
                         <Input
+                            required
                             id='email'
                             name='email'
                             type='email'
+                            placeholder='Your Email Address'
                             onChange={signUp.handleChange}
                             onBlur={signUp.handleBlur}
                             value={signUp.values.email}
@@ -113,9 +121,11 @@ const SignUp = (props) => {
                       <Label for='password'>Password</Label>
                       <Col xs='12'>
                         <Input
+                            required
                             id='password'
                             name='password'
                             type='password'
+                            placeholder='Your Password'
                             onChange={signUp.handleChange}
                             onBlur={signUp.handleBlur}
                             value={signUp.values.password}
@@ -126,7 +136,8 @@ const SignUp = (props) => {
                     <FormGroup>
                       <Label for='confirm'>Confirm Password</Label>
                       <Col xs='12'>
-                        <Input
+                        <Input 
+                            required
                             id='confirm'
                             name='confirm'
                             type='password'
@@ -142,6 +153,7 @@ const SignUp = (props) => {
                         <FormGroup check>
                           <Label check>
                             <Input 
+                            required
                             id='accepted'
                             name='accepted'
                             type='checkbox'

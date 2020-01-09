@@ -43,11 +43,11 @@ const SignIn = props => {
         <Col xs="3"></Col>
         <Col xs="6">
           <Card>
-            <CardTitle>Sign In:</CardTitle>
+            <CardTitle style={{ margin: 'auto', fontWeight: 'bold', marginTop: '1rem', fontSize: '2rem' }}  >Sign In</CardTitle>
             <Col xs="12">
               <Form onSubmit={handleSubmitLogin}>
                 <FormGroup>
-                  <Label for="user">Username</Label>
+                  <Label for="user" style={{fontSize: '1.1rem'}}>Username</Label>
                   <Col xs="12">
                     <Input
                       id="user"
@@ -63,7 +63,7 @@ const SignIn = props => {
                   </Col>
                 </FormGroup>
                 <FormGroup>
-                  <Label for="password">Pasword</Label>
+                  <Label for="password" style={{fontSize: '1.1rem'}} >Password</Label>
                   <Col xs="12">
                     <Input
                       id="password"
