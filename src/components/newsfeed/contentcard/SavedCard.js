@@ -17,8 +17,6 @@ const SavedCard = (props) => {
         e.preventDefault()
         dispatch(deleteSaved(user.id, user.user_id))
     }
-
-    const saltyScore = Math.round(user.saltyRank * 100)
     
     return(
         <div>
@@ -29,7 +27,7 @@ const SavedCard = (props) => {
                     <Col xs="1"></Col>
                     <Col xs="3"><h5 className="text-primary">{user.saltyComment}</h5></Col>
                     <Col xs="1"></Col>
-                    <Col xs="1"><h5 className="text-primary">{saltyScore}</h5></Col>
+                    <Col xs="1"><h5 className="text-primary">{user.saltyRank}</h5></Col>
                     <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleDelete} color="gold" size="2x" /></Col>
                     <Col xs="1"><a className="twitter-share-button" href={tweetURL}>Tweet!</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></Col>
                 </Row>
