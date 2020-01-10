@@ -65,7 +65,7 @@ const SignUp = (props) => {
           <Row>
             <Col xs='3'></Col>
             <Col xs='6'>
-              <Card>
+              <Card >
                 <CardTitle style={{ margin: 'auto', fontWeight: 'bold', marginTop: '1rem', fontSize: '2rem' }} >Create an Account</CardTitle>
                 <Col xs='12'>
                   <Form onSubmit={handleSignUp}>

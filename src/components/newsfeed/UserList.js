@@ -13,12 +13,13 @@ const UserList = () => {
         <>
             <Row>
                 <Col xs="1"></Col>
-                <Col xs="3"><h4 className="text-white">User</h4></Col>
+                <Col xs="2"><h2 className="text-white">User</h2></Col>
+                {/* <Col xs="1"></Col> */}
+                <Col xs="3"><h3 className="text-white">Comment</h3></Col>
+                <Col xs="3"></Col>
                 <Col xs="1"></Col>
-                <Col xs="4"><h4 className="text-white">Comment</h4></Col>
-                <Col xs="1"></Col>
-                <Col xs="1"><h4 className="text-white">Score</h4></Col>
-                <Col xs="1"><h4 className="text-white">Save</h4></Col>
+                <Col xs="1"><h3 className="text-white">Score</h3></Col>
+                <Col xs="1"><h3 className="text-white">Save</h3></Col>
             </Row>
             {usersList.map((user, index) => 
                     <UserCard user={ user } id={ index } />    

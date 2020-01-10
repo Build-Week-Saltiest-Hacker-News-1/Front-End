@@ -25,9 +25,10 @@ const TabbedView = () => {
     return (
         <div>
             <Row><h1>&nbsp;</h1></Row>
-            <Nav tabs>
+            {/* <div style={{ textAlign: 'center', marginBottom: '5%'}} ><h1 >SALTY THINGS</h1></div> */}
+            <Nav tabs >
                 <NavItem style={{width: "25%"}}>
-                    <NavLink
+                    <NavLink 
                         className={classnames({ active: activeTab === '1' })}
                         onClick={() => { toggle('1'); }}
                     >
@@ -63,7 +64,7 @@ const TabbedView = () => {
                 <TabPane tabId="1">
                 <Row>
                     <Col sm="12">
-                        <Jumbotron className="myblue">
+                        <Jumbotron style={{backgroundImage: 'linear-gradient(#04519b, #033C73 60%, #02325f)'}}>
                             <UserList />
                         </Jumbotron>
                     </Col>
@@ -72,7 +73,7 @@ const TabbedView = () => {
                 <TabPane tabId="2">
                 <Row>
                     <Col sm="12">
-                        <Jumbotron className="myblue">
+                        <Jumbotron style={{backgroundImage: 'linear-gradient(#6d94bf, #446E9B 50%, #3e648d)'}}>
                             <NewsList />
                         </Jumbotron>
                     </Col>
@@ -81,7 +82,7 @@ const TabbedView = () => {
                 <TabPane tabId="3">
                 <Row>
                     <Col sm='12'>
-                        <Jumbotron className="myorange">
+                        <Jumbotron style={{backgroundImage: 'linear-gradient(#ff6707, #DD5600 60%, #c94e00)'}} >
                             <SavedList />
                         </Jumbotron>
                     </Col>
@@ -90,7 +91,7 @@ const TabbedView = () => {
                 <TabPane tabId="4">
                 <Row>
                     <Col sm="12">
-                        <Jumbotron className="myorange">
+                        <Jumbotron style={{backgroundImage: 'linear-gradient(#54b4eb, #2FA4E7 60%, #1d9ce5)'}}>
                             <Profile />
                         </Jumbotron>
                     </Col>
