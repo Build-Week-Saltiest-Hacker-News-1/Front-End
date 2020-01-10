@@ -4,14 +4,14 @@ import axios from 'axios'
 import UserCard from "./contentcard/UserCard";
 import { save } from "../../dummy"
 const NewsList = () => {
-    // const [news, setNews] = useState(save)
-    // useEffect(() => {
-    //     axios.get('https://swapi.co/api/people') //replace with API for ranked by saltiness
-    //         .then(res => {
-    //             console.log(res)
-    //             setNews(res.data.results)
-    //         })
-    // }, [])
+    const [news, setNews] = useState(save)
+    useEffect(() => {
+        axios.get('https://swapi.co/api/people') //replace with API for ranked by saltiness
+            .then(res => {
+                console.log(res)
+                setNews(res.data.results)
+            })
+    }, [])
     return (
         <>
             <Row>

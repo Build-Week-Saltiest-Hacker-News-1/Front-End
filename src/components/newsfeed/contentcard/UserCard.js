@@ -19,8 +19,6 @@ const UserCard = (props) => {
         saltyUsername: user.saltyUsername
     })
 
-    const saltyScore = Math.round(user.saltyRank * 100)
-
     const [ save, setSave ] = useState({isSaved: false})
 
     
@@ -83,7 +81,7 @@ const UserCard = (props) => {
                     <Col xs="1"></Col>
                     <Col xs="4"><h5 className="text-primary">{user.saltyComment}</h5></Col>
                     <Col xs="1"></Col>
-                    <Col xs="1"><h5 className="text-primary">{saltyScore}</h5></Col>
+                    <Col xs="1"><h5 className="text-primary">{user.saltyRank}</h5></Col>
                     {
                         user.isSaved ?
                         <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleUnSave} color="gold" size="2x" /></Col> :
