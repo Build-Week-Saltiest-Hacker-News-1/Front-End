@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.myblue-text{
+  color: #2F788F;
+}
+
+.myblue{
+  background-color: #2F788F;
+}
+
+.myorange-text{
+  color: #AC4810;
+}
+
+.myorange{
+  background-color: #AC4810;
+}

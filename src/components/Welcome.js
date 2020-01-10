@@ -22,14 +22,14 @@ const Welcome = () => {
         }, [])
 
     return (
-        <Jumbotron className="bg-info">
+        <Jumbotron className="myblue">
             <Row>
                 <Col xs="1"></Col>
-                <Col xs="3"><h4 className="text-primary">User</h4></Col>
+                <Col xs="3"><h4 className="text-white">User</h4></Col>
                 <Col xs="1"></Col>
-                <Col xs="5"><h4 className="text-primary">Comment</h4></Col>
+                <Col xs="5"><h4 className="text-white">Comment</h4></Col>
                 <Col xs="1"></Col>
-                <Col xs="1"><h4 className="text-primary">Score</h4></Col>
+                <Col xs="1"><h4 className="text-white">Score</h4></Col>
             </Row>
             {usersList.map((user, index) => 
                     <WelcomeCard user={ user } place={ index } />    
