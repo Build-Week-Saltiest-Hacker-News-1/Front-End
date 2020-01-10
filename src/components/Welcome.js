@@ -24,9 +24,9 @@ const Welcome = () => {
     return (
 
         <Row><h1>&nbsp;</h1>
-        <Jumbotron className="myblue">
+        <Jumbotron style={{backgroundImage: 'linear-gradient(#04519b, #033C73 60%, #02325f)'}}  >
             
-               <Jumbotron  >
+               <Jumbotron className="bg-primary text-light " >
         <h1 className="display-3">Hacker News Salt Mine!</h1>
         <p className="lead">Your source for the saltiest and most triggered troll comments from Hacker News!</p>
         <hr className="my-2" />

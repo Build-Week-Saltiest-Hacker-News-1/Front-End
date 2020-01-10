@@ -44,13 +44,14 @@ const WelcomeCard = (props) => {
     
     return(
         <div>
-            <div style={{backgroundColor: "#ccc", paddingTop: "1rem", paddingBottom: "1rem", borderRadius: "1rem"}}>
+            <Row>&nbsp;</Row>
+            <div style={{  backgroundColor: '#e9ecef', paddingTop: "1rem", paddingBottom: "1rem", borderRadius: "1rem"}}>
                 <Row>    
                     <Col xs="1">{ placeDisplay() }</Col>
-                    <Col xs="3"><h4 className="text-primary">{user.saltyUsername}</h4></Col>
+                    <Col xs="1"><h5 className="text-primary">{user.saltyUsername}</h5></Col>
                     <Col xs="1"></Col>
-                    <Col xs="5"><h4 className="text-primary">{user.saltyComment}</h4></Col>
-                    <Col xs="1"></Col>
+                    <Col xs="8"><p className="text-primary">{user.saltyComment}</p></Col>
+                    {/* <Col xs="1"></Col> */}
                     <Col xs="1"><h4 className="text-primary">{user.saltyRank}</h4></Col>
                 </Row>
             </div>

@@ -13,13 +13,14 @@ const SavedList = () => {
         <>
         <Row>
             <Col xs="1"></Col>
-            <Col xs="3"><h4 className="text-white">User</h4></Col>
+            <Col xs="1"><h2 className="text-white">User</h2></Col>
             <Col xs="1"></Col>
-            <Col xs="3"><h4 className="text-white">Comment</h4></Col>
-            <Col xs="1"></Col>
-            <Col xs="1"><h4 className="text-white">Score</h4></Col>
-            <Col xs="1"><h4 className="text-white">Save</h4></Col>
-            <Col xs="1"><h4 className="text-white">Tweet</h4></Col>
+            <Col xs="4"><h3 className="text-white">Comment</h3></Col>
+            <Col xs="2"></Col>
+            <Col xs="1"><h3 className="text-white">Score</h3></Col>
+            {/* <Col xs="1"></Col> */}
+            <Col xs="1"><h3 className="text-white">Save</h3></Col>
+            <Col style={{width: '150%'}} xs="1"><h3 className="text-white">Tweet</h3></Col>
         </Row>
         { saved.map(user => 
                 <SavedCard key={user.id} user={ user } />    

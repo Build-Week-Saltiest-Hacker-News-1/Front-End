@@ -58,7 +58,7 @@ const Navigation = (props) => {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
+      <Navbar color="primary" dark expand="md">
         <NavbarBrand href={token ? '/dashboard' : '/'}>Hacker News Salt Mine</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

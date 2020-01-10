@@ -1,13 +1,13 @@
 import React from "react";
 import { Card, CardTitle, CardBody, CardText, Label } from "reactstrap";
 
-const UserInfo = (props) => {
+const UserInfo = (props) => { 
   
   
   return (
     <>
        <Card>
-       <CardTitle style={{ margin: "auto", marginTop: "1rem",  fontWeight: "bold", fontSize: "2rem" }}>
+       <CardTitle style={{  margin: "auto", marginTop: "1rem",  fontWeight: "bold", fontSize: "2rem" }}>
             {props.userInfo.user}
           </CardTitle>
           <hr/>
