@@ -27,8 +27,8 @@ const SignIn = props => {
 
   const signIn = useFormik({
     initialValues: {
-      user: "Username",
-      password: "Password"
+      user: "",
+      password: ""
     },
     validationSchema: Yup.object({
       user: Yup.string().required("Required"),
@@ -50,9 +50,11 @@ const SignIn = props => {
                   <Label for="user" style={{fontSize: '1.1rem'}}>Username</Label>
                   <Col xs="12">
                     <Input
+                      required
                       id="user"
                       name="user"
                       type="textname"
+                      placeholder="Enter Username"
                       onChange={signIn.handleChange}
                       onBlur={signIn.handleBlur}
                       value={signIn.values.user}
@@ -66,9 +68,11 @@ const SignIn = props => {
                   <Label for="password" style={{fontSize: '1.1rem'}} >Password</Label>
                   <Col xs="12">
                     <Input
+                      required
                       id="password"
                       name="password"
                       type="password"
+                      placeholder="Enter Password"
                       onChange={signIn.handleChange}
                       onBlur={signIn.handleBlur}
                       value={signIn.values.password}
