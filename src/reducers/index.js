@@ -40,9 +40,9 @@ import {
 import { main, save } from '../dummy'
 
 export const initialState = {
-    feed : [],
-    saved: [],
-    finaldata: [],
+    feed : main,
+    saved: save,
+    finaldata: main,
     userInfo : {},
     userEdit: {},
     isLoggedIn: false,
