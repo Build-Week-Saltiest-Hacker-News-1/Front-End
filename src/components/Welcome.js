@@ -15,11 +15,14 @@ const Welcome = () => {
             
             updateUsers(res.data.sort((a,b) => (a.saltyRank < b.saltyRank) ? 1: -1))
         })
+        
         .catch(err => {
             console.log(err)
         })
 
         }, [])
+
+    const newList = usersList.slice(0,5)
 
     return (
 
@@ -45,7 +48,7 @@ const Welcome = () => {
                 <Col xs="1"></Col>
                 <Col xs="1"><h4 className="text-white">Score</h4></Col>
             </Row>
-            {usersList.map((user, index) => 
+            {newList.map((user, index) => 
                     <WelcomeCard key={user.id} user={ user } place={ index } />    
                 )
             }
