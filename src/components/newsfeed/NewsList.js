@@ -15,12 +15,12 @@ const NewsList = () => {
         <>
             <Row>
                 <Col xs="1"></Col>
-                <Col xs="3"><h4 className="text-primary">User</h4></Col>
+                <Col xs="3"><h4 className="text-white">User</h4></Col>
                 <Col xs="1"></Col>
-                <Col xs="4"><h4 className="text-primary">Comment</h4></Col>
+                <Col xs="4"><h4 className="text-white">Comment</h4></Col>
                 <Col xs="1"></Col>
-                <Col xs="1"><h4 className="text-primary">Score</h4></Col>
-                <Col xs="1"><h4 className="text-primary">Save</h4></Col>
+                <Col xs="1"><h4 className="text-white">Score</h4></Col>
+                <Col xs="1"><h4 className="text-white">Save</h4></Col>
             </Row>
             {news.map(user => 
                     <UserCard user={ user } />    

@@ -24,7 +24,7 @@ const SavedCard = (props) => {
             <div style={{backgroundColor: "#ccc", paddingTop: "1rem", paddingBottom: "1rem", borderRadius: "1rem"}}>
                 <Row>
                     <Col xs="1"></Col>
-                    <Col xs="3"><h4 className="text-primary">{user.saltyUsername}</h4></Col>
+                    <Col xs="3"><h4 className="myorange-text">{user.saltyUsername}</h4></Col>
                     <Col xs="1"></Col>
                     <Col xs="3"><h4 className="text-primary">{user.saltyComment}</h4></Col>
                     <Col xs="1"></Col>

@@ -77,7 +77,7 @@ const UserCard = (props) => {
             <div style={{backgroundColor: "#ccc", paddingTop: "1rem", paddingBottom: "1rem", borderRadius: "1rem"}}>
                 <Row>    
                     <Col xs="1">{ idDisplay() }</Col>
-                    <Col xs="3"><h4 className="text-primary">{user.saltyUsername}</h4></Col>
+                    <Col xs="3"><h4 className="myblue-text">{user.saltyUsername}</h4></Col>
                     <Col xs="1"></Col>
                     <Col xs="4"><h4 className="text-primary">{user.saltyComment}</h4></Col>
                     <Col xs="1"></Col>
