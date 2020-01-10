@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux"
 import { deleteSaved, getDashboard } from "./../../../actions"
 
-import { Row, Col } from "reactstrap";
+import { Row, Col, NavLink } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faShare} from '@fortawesome/free-solid-svg-icons'
 
@@ -30,7 +30,7 @@ const SavedCard = (props) => {
                     {/* <Col xs="1"></Col> */}
                     <Col xs="1"><h4 className="text-primary">{user.saltyRank}</h4></Col>
                     <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleDelete} color="gold" size="2x" /></Col>
-                    <Col xs="1"><a class="twitter-share-button" href={tweetURL}><FontAwesomeIcon icon={ faShare } color="dodgerBlue" size="2x" /></a></Col>  
+                    <Col xs="1"><NavLink  class="twitter-share-button" href={tweetURL}><FontAwesomeIcon icon={ faShare } color="dodgerBlue" size="2x" /></NavLink></Col>  
                 </Row>
             </div>
             <Row>&nbsp;</Row>
