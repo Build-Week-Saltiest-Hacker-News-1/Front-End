@@ -18,9 +18,9 @@ const TabbedView = () => {
         if(activeTab !== tab) setActiveTab(tab);
     }
 
-    useEffect(() => {
-        dispatch(getDashboard(userid));
-    },[dispatch])
+    // useEffect(() => {
+    //     dispatch(getDashboard(userid));
+    // },[dispatch])
 
     return (
         <div>

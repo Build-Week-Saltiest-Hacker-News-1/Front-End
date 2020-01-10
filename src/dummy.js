@@ -185,3 +185,27 @@ export const main = [
         saltyRank: 0.5853949601
       }
 ]
+
+export const save = [
+    {
+        saltyUsername: "alien1993",
+        saltyComment:
+          "I use Hugo too but I suggest anyone pay attention since they can introduce breaking changes with minor versions. \r\nWith v0.58.0 they broke lots of themes, including mine, so if you want to create a theme for it, or even use an existing one, remember that just a small update might break it. This[0] is the issue that broke lots of themes. The fix was certainly an easy and small one but still a breaking change, and not the only one, in a minor version change; that should have been a major version change, if you want to use semver[1] as a convention you must respect it. [0]:  https://github.com/gohugoio/hugoThemes/issues/682 \r\n[1]:  https://semver.org/",
+        comment_id: 21711565,
+        saltyRank: 0.5345354255
+      },
+      {
+        saltyUsername: "thu2111",
+        saltyComment:
+          "Governments generally tax everything they can think of. So there are many different taxes and Facebook pays them all. There's VAT, which is essentially passed through to their customers but the seller collects it. There's employment, local government taxes. Facebook pays those because it has workers in the country. There's corporation taxes, which are taxes on corporate profits. Facebook pays some of these because technically speaking there is no one company called just \"Facebook\", there's Facebook Inc (USA), Facebook Ltd (UK) etc and they buy/sell services from one another. Specifically, Facebook USA buys software development and sales services from Facebook UK, and Facebook UK buys the rights to the name and the ability to insert ads into the ads system from Facebook USA. We think of them as a single firm but legally they aren't, and this follows from the lack of one global government so it's not a small quirk or weird legal hack Facebook are engaged in: there is literally no such thing as a company of the world. To what extent corporate profits are allocated to specific countries determines what amount of corporation tax is paid, however, all such allocations are entirely arbitrary. None can be said to be more rigorous or accurate than any others, although tax lawyers make a lot of money out of trying :) For instance, all of these positions could be reasonably argued: 1. Facebook makes zero profit in the UK and thus should pay no corporation taxes at all. That's because Facebook makes money due to the actions and software written by the employees in the USA; without the UK office Facebook would still exist but without the USA office it wouldn't. Therefore all money is \"made\" in the USA and none is \"made\" in the UK. 2. Facebook makes lots of profit in the UK because if every British person stopped using Facebook tomorrow, it'd punch a big hole in their revenue stream. The incremental costs of serving a British customer over an American customer is tiny because they even speak the same language, so once the US version of the site was developed, the costs were already sunk. Thus all revenue from British users is pure profit and so 19% of all revenue originating from British firms should accrue to the UK government. 3. Facebook doesn't make any money in the UK, it actually makes its money in the Ireland because that's where its EU registered headquarters is, and EU corporate tax law was designed to allocate profits to the nameplate location. 4. Facebook makes its money in Ireland because that's where the datacenters are. This is the critical aspect because it's ads are sold in real time auctions and thus the location where the click is processed is where the \"sale\" is being made. Of course this is circular: in argument 2 we talked about \"British firms\" but what is a British firm? Is ARM? It's owned by the Japanese now. Maybe it's a Japanese firm. Or maybe it's still British because that's where most of the work is done. Because the concept of \"making money\" for an international firm is so vague, and impossible to refine in a principled way, in practice what happens is a bunch of well paid corporate tax lawyers sit down with the government tax agencies and thrash out some sort of ad hoc deal or arrangement. The company agrees to pay  some  tax to the UK even though they may feel entirely American and in return the government agrees not to go to court and fight a very complex and expensive tax case that they might well lose, depending on the whims of the judge and/or how vague the various tax treaties are written.",
+        comment_id: 21714222,
+        saltyRank: 0.5295974122
+      },
+      {
+        saltyUsername: "mumblemumble",
+        saltyComment:
+          "A good percentage of the ad-supported podcasts I listen to also have an ad-free feed for their Patreon subscribers. I'd say look there first if you're looking to spend money to avoid ads. We messed this up 20 years ago when online print media tried doing the same, and the result has been an endless and wasteful arms race. Let's not mess this up again.",
+        comment_id: 21707021,
+        saltyRank: 0.5223410217
+      }
+]
