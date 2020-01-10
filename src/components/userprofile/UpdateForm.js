@@ -4,14 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { putEditedUser, getUserData } from "../../actions/";
 import Validate from "../Validate"
 
-const initialState = {
-  name: "",
-  user: "",
-  email: "",
-};
-
 
 const UpdateForm = (props) => {
+  
+  const initialState = {
+    name: "",
+    user: "",
+    email: "",
+  };
+
   const dispatch = useDispatch();
   const [ done, setDone ] = useState(false);
   const [ values, setEdited] = useState(initialState);
@@ -59,11 +60,11 @@ const UpdateForm = (props) => {
             <br />
             <Label for="user" style={{ fontWeight: "bold" }}>Username</Label>
             <Input required  id='user' name='user' type='text' placeholder={props.userInfo.user} value={values.user} onChange={changeHandler} ></Input>
-            {error.user && <p color="red" >{error.user}</p>}
+            {error.user && <p style={{color:"red"}}  >{error.user}</p>}
             <br/>
             <Label style={{ fontWeight: "bold" }}>Email</Label>
             <Input required id='email'name='email'  placeholder={props.userInfo.email} value={values.email} onChange={changeHandler}></Input>
-             {error.email && <p color="red" >{error.email}</p>}
+             {error.email && <p style={{color:"red"}}  >{error.email}</p>}
             <br />
             {/* <Label style={{ fontWeight: "bold" }}>Password</Label>
             <Input  required id='password' name='password' type='password' placeholder="password" value={values.password} onChange={changeHandler}></Input>
