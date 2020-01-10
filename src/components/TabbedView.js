@@ -3,8 +3,9 @@ import { useDispatch} from 'react-redux'
 import { getDashboard } from './../actions' 
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Jumbotron } from 'reactstrap';
 import classnames from 'classnames';
+
 import UserList from "./newsfeed/UserList";
-import NewsList from './newsfeed/NewsList';
+import CommentList from './newsfeed/CommentList';
 import SavedList from "./newsfeed/SavedList";
 import Profile from "./userprofile/Profile";
 
@@ -74,7 +75,7 @@ const TabbedView = () => {
                 <Row>
                     <Col sm="12">
                         <Jumbotron style={{backgroundImage: 'linear-gradient(#6d94bf, #446E9B 50%, #3e648d)'}}>
-                            <NewsList />
+                            <CommentList />
                         </Jumbotron>
                     </Col>
                 </Row>

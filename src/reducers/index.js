@@ -37,7 +37,7 @@ import {
 
 } from './../actions'
 
-import { main, save } from '../dummy'
+// import { main, save } from '../dummy'
 
 export const initialState = {
     feed : [],
@@ -141,7 +141,7 @@ export const Reducers = (state = initialState, action) =>{
                 finaldata : state.feed.map(el => {
                     return {
                         ...el,
-                        isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el.saltyUsername)) && JSON.stringify(state.saved).includes(JSON.stringify(el.saltyComment))
+                        isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el))
                     }  
                 }).sort((a,b) => (a.saltyRank < b.saltyRank) ? 1: -1)
             }

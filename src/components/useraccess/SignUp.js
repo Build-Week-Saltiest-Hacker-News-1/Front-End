@@ -19,8 +19,11 @@ const SignUp = (props) => {
       email: signUp.values.email,
       password: signUp.values.password
     } 
-    const values = { name: signUp.values.name,
-      user: signUp.values.user }
+  // const values = { 
+  //   name: signUp.values.name,
+  //   user: signUp.values.user 
+  // }
+
     dispatch(postRegister(validValue))
     alert('Account Registered!')
     push("/signin/")
