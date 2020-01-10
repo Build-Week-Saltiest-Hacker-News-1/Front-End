@@ -63,7 +63,7 @@ const TabbedView = () => {
                 <TabPane tabId="1">
                 <Row>
                     <Col sm="12">
-                        <Jumbotron className="bg-info">
+                        <Jumbotron className="myblue">
                             <UserList />
                         </Jumbotron>
                     </Col>
@@ -72,7 +72,7 @@ const TabbedView = () => {
                 <TabPane tabId="2">
                 <Row>
                     <Col sm="12">
-                        <Jumbotron className="bg-info">
+                        <Jumbotron className="myblue">
                             <NewsList />
                         </Jumbotron>
                     </Col>
@@ -81,7 +81,7 @@ const TabbedView = () => {
                 <TabPane tabId="3">
                 <Row>
                     <Col sm='12'>
-                        <Jumbotron className="bg-warning">
+                        <Jumbotron className="myorange">
                             <SavedList />
                         </Jumbotron>
                     </Col>
@@ -90,7 +90,7 @@ const TabbedView = () => {
                 <TabPane tabId="4">
                 <Row>
                     <Col sm="12">
-                        <Jumbotron className="bg-warning">
+                        <Jumbotron className="myorange">
                             <Profile />
                         </Jumbotron>
                     </Col>

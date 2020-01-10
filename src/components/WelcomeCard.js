@@ -47,11 +47,11 @@ const WelcomeCard = (props) => {
             <div style={{backgroundColor: "#ccc", paddingTop: "1rem", paddingBottom: "1rem", borderRadius: "1rem"}}>
                 <Row>    
                     <Col xs="1">{ placeDisplay() }</Col>
-                    <Col xs="3"><h4 className="text-primary">{user.name}</h4></Col>
+                    <Col xs="3"><h4 className="text-primary">{user.saltyUsername}</h4></Col>
                     <Col xs="1"></Col>
-                    <Col xs="5"><h4 className="text-primary">{user.homeworld}</h4></Col>
+                    <Col xs="5"><h4 className="text-primary">{user.saltyComment}</h4></Col>
                     <Col xs="1"></Col>
-                    <Col xs="1"><h4 className="text-primary">{user.height}</h4></Col>
+                    <Col xs="1"><h4 className="text-primary">{user.saltyRank}</h4></Col>
                 </Row>
             </div>
             <Row>&nbsp;</Row>

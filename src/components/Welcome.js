@@ -9,16 +9,22 @@ const Welcome = () => {
     const [usersList, updateUsers] = useState([])
 
     useEffect(() => {
-        axios.get('https://swapi.co/api/people')
-            .then(res => {
-                console.log(res)
-                updateUsers(res.data.results)
-            })
-    }, [])
+        axios
+        .get("https://salty-hacker-news.herokuapp.com/api/feed")
+        .then(res => {
+            
+            updateUsers(res.data.sort((a,b) => (a.saltyRank < b.saltyRank) ? 1: -1))
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        }, [])
 
     return (
+
      
-        <Jumbotron className="bg-info">
+        <Jumbotron className="myblue">
                <Jumbotron  >
         <h1 className="display-3">Hacker News Salt Mine!</h1>
         <p className="lead">Your source the saltiest and most triggered troll comments from Hacker News!</p>
@@ -29,13 +35,14 @@ const Welcome = () => {
           <Button color="primary" href="/signup" >Click to Sign Up!</Button>
         </p>
       </Jumbotron>
+
             <Row>
                 <Col xs="1"></Col>
-                <Col xs="3"><h4 className="text-primary">User</h4></Col>
+                <Col xs="3"><h4 className="text-white">User</h4></Col>
                 <Col xs="1"></Col>
-                <Col xs="5"><h4 className="text-primary">Comment</h4></Col>
+                <Col xs="5"><h4 className="text-white">Comment</h4></Col>
                 <Col xs="1"></Col>
-                <Col xs="1"><h4 className="text-primary">Score</h4></Col>
+                <Col xs="1"><h4 className="text-white">Score</h4></Col>
             </Row>
             {usersList.map((user, index) => 
                     <WelcomeCard key={user.id} user={ user } place={ index } />    
