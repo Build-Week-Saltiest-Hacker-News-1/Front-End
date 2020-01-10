@@ -27,3 +27,16 @@ code {
 .myorange{
   background-color: #AC4810;
 }
+
+.twitter-share-button{
+  background-color:#55acee;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 3px 10px 3px 10px
+}
+
+.twitter-share-button:hover{
+  background-color: #0084b4;
+  text-decoration: none;
+}
+

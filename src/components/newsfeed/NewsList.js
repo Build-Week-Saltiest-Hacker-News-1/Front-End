@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Row, Col } from 'reactstrap'
 import axios from 'axios'
 import UserCard from "./contentcard/UserCard";
+import { save } from "../../dummy"
 const NewsList = () => {
-    const [news, setNews] = useState([])
+    const [news, setNews] = useState(save)
     useEffect(() => {
         axios.get('https://swapi.co/api/people') //replace with API for ranked by saltiness
             .then(res => {
@@ -23,8 +24,8 @@ const NewsList = () => {
                 <Col xs="1"><h3 className="text-white">Score</h3></Col>
                 <Col xs="1"><h3 className="text-white">Save</h3></Col>
             </Row>
-            {news.map(user => 
-                    <UserCard user={ user } />    
+            {save.map((user, index) => 
+                    <UserCard user={ user } id={ index } />    
                 )
             }
         </>
