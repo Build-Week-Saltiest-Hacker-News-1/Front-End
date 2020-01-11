@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from "react-redux"
 import { Row, Col } from 'reactstrap'
 
-
 import SavedCard from "./contentcard/SavedCard"
 
 const SavedList = () => {

@@ -1,4 +1,4 @@
-export const main = [
+export const dummy = [
     {
         saltyUsername: "alien1993",
         saltyComment:
@@ -183,54 +183,5 @@ export const main = [
           "It's because, just like with Objectivism before it, once one start to accept neoreactionary tenets, then their conclusions seem unavoidable. They're less illogical than one would hope or imagine. The biggest inoculant, personally, was reading \"Guns, Germs, & Steel\" in my late teens. Other important concepts that have helped me to design arguments against bullshit: * Pedigree collapse (undermines race realism and Great Replacement) * Sex chromosomes/allosomes (undermines binary sexual theories and pre-queer gender theory) * (Computational) complexity theory (undermines classical analysis of Chinese Room, Simulation Arguments, Newcomb's Paradox, other LW favorites) * Plate tectonics/basic geology (undermines space denial) * Worryingly: History of the USA (undermines Lost Cause, Deep State, etc.) There is a big underlying current that I have noticed: Those who committed to classical liberalism were the ones swept away, while neoliberals, metaliberals, feminists, and Marxists were not moved. This is the big change in the shape of the left wing, to the extent that such a thing exists, and probably a large part of why it seems so much further to the left than it used to be. The alt-right tide washed in, and washed out a large part of the center of the beach when it went back out. Also, as you point out, people aren't getting laid. It is depressing to ponder whether the  real  inoculant may have been the fact that I had a girlfriend in high school.",
         comment_id: 21684124,
         saltyRank: 0.5853949601
-      }
-]
-
-export const save = [
-  {
-    saltyUsername: "mapcars",
-    saltyComment: "I really wonder how come Europeans are so violent?",
-    comment_id: 21690772,
-    saltyRank: 76
-  },
-  {
-    saltyUsername: "reaperducer",
-    saltyComment:
-      "It doesn't have to be different.  They can both be a bad idea.",
-    comment_id: 21706977,
-    saltyRank: 63
-  },
-    {
-    saltyUsername: "hylaride",
-    saltyComment:
-      "The fact that you\u2019re having to clarify your points to everybody means your wording implied otherwise.",
-    comment_id: 21716851,
-    saltyRank: 39
-    },
-      {
-        saltyUsername: "NeutronStar",
-        saltyComment:
-          "Can't blame Amazozn if they don't let you view their workers entering your home.",
-        comment_id: 21717228,
-        saltyRank: 41
-      },
-      {
-        saltyUsername: "shmerl",
-        saltyComment: 'Sounds a reasoning behind 1984 "Ignorance is Strength".',
-        comment_id: 21724659,
-        saltyRank: 70
-      },
-      {
-        saltyUsername: "shkkmo",
-        saltyComment:
-          "Legally protected status? The current removal of that legal protection is currently being fought in courts, once that gets cleared expect the minor violations that we have now to be expanded rapidly.",
-        comment_id: 21723894,
-        saltyRank: 50
-      },
-      {
-        saltyUsername: "charlesju",
-        saltyComment: "This is hilarious. Can we get a blog on how you built it?",
-        comment_id: 21707583,
-        saltyRank: 60
       }
 ]

@@ -37,12 +37,12 @@ import {
 
 } from './../actions'
 
-// import { main, save } from '../dummy'
 
 export const initialState = {
     feed : [],
     saved: [],
     finaldata: [],
+    finaldata2: [],
     userInfo : {},
     userEdit: {},
     isLoggedIn: false,
@@ -128,6 +128,7 @@ export const Reducers = (state = initialState, action) =>{
                 ...state,
                 isFetching: true
             }
+            
         case GET_DASHBOARD_SUCCESS:
             return{
                 ...state,
@@ -135,15 +136,22 @@ export const Reducers = (state = initialState, action) =>{
                 feed: action.payload[0] ,               
                 saved: action.payload[1],
             }
+
         case "COMPLETE_DATA":
             return{
                 ...state,
                 finaldata : state.feed.map(el => {
                     return {
                         ...el,
-                        isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el))
+                        isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el.comment_id))
                     }  
-                }).sort((a,b) => (a.saltyRank < b.saltyRank) ? 1: -1)
+                }).sort((a,b) => (a.saltyRank < b.saltyRank) ? 1: -1),
+                finaldata2 : state.feed.map(el => {
+                    return {
+                        ...el,
+                        isSaved: JSON.stringify(state.saved).includes(JSON.stringify(el.comment_id))
+                    }  
+                }).sort((a,b) => (a.saltyRank < b.saltyRank) ? 1: -1),
             }
         
         case SAVE_SUCCESS:
