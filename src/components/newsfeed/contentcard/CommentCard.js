@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { saveComment, deleteSaved } from "./../../../actions"
 
 import { Row, Col } from "reactstrap";
@@ -15,24 +15,26 @@ const CommentCard = (props) => {
     const [ value ] = useState({
         user_id: parseInt(userId),
         saltyComment: user.saltyComment,
+        comment_id: user.comment_id,
         saltyRank: user.saltyRank,
         saltyUsername: user.saltyUsername
     })
-
+    const saved = useSelector(state => state.saved)
     const [ save, setSave ] = useState({isSaved: false})
 
-    
     const handleSave = e => {
         e.preventDefault()
-        dispatch(saveComment(value, userId))
-        setSave({ ...save, isSaved: true})
+        if (saved.includes(!user.comment_id)){
+            dispatch(saveComment(value, userId))
+            setSave({ ...save, isSaved: true})
+        }
     }
 
-    const handleUnSave = e => {
-        e.preventDefault()
-        dispatch(deleteSaved(id, userId))
-        setSave({ ...save, isSaved: false})
-    }
+    // const handleUnSave = e => {
+    //     e.preventDefault()
+    //     dispatch(deleteSaved(id, userId))
+    //     setSave({ ...save, isSaved: false})
+    // }
 
 
     const idDisplay = () => {
@@ -85,7 +87,7 @@ const CommentCard = (props) => {
                     <Col xs="1"><h4 className="text-primary">{user.saltyRank}</h4></Col>
                     {
                         user.isSaved ?
-                        <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleUnSave} color="gold" size="2x" /></Col> :
+                        "COMMENT SAVED!" :
                         <Col xs="1"><FontAwesomeIcon icon={ faStar } onClick={handleSave} color="gray" size="2x" /></Col>
                     }
                     

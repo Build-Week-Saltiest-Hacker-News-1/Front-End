@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { deleteSaved, getDashboard } from "./../../../actions"
 
 import { Row, Col, NavLink } from "reactstrap";
@@ -8,6 +8,7 @@ import { faStar, faShare} from '@fortawesome/free-solid-svg-icons'
 
 const SavedCard = (props) => {
 
+    const saved = useSelector(state => state.saved)
     const dispatch = useDispatch()
     const { user } = props;
     const comment = `Look at this comment from Salty Hacker News: "${user.saltyComment}"`;
